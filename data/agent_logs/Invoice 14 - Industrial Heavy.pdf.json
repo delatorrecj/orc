@@ -1,0 +1,61 @@
+{
+  "file": "Invoice 14 - Industrial Heavy.pdf",
+  "gatekeeper": {
+    "doc_type": "Invoice",
+    "vendor_name": "GLOBAL CHIP FOUNDRY LTD.",
+    "confidence_score": 0.98,
+    "summary": "This is a commercial invoice from Global Chip Foundry Ltd. to Gemini Project HQ for various items including silicon wafers, cobalt raw material, lithium ion battery packs, and crating services, totaling $31,850.00."
+  },
+  "analyst": {
+    "po_number": null,
+    "invoice_date": "2024-10-25",
+    "vendor_details": {
+      "name": "GLOBAL CHIP FOUNDRY LTD.",
+      "address": "45 Industrial Blvd, Austin, TX"
+    },
+    "line_items": [
+      {
+        "sku": "SIL-WAF-300",
+        "desc": "300mm Silicon Wafers (Grade A)",
+        "qty": null,
+        "unit_price": null,
+        "total": 12000.0
+      },
+      {
+        "sku": "COB-RAW-01",
+        "desc": "Cobalt Raw Material (Bagged)",
+        "qty": null,
+        "unit_price": null,
+        "total": 4500.0
+      },
+      {
+        "sku": "LITH-ION-PK",
+        "desc": "Lithium Ion Battery Packs",
+        "qty": null,
+        "unit_price": null,
+        "total": 15000.0
+      },
+      {
+        "sku": "PKG-IND",
+        "desc": "Industrial Crating Service",
+        "qty": null,
+        "unit_price": null,
+        "total": 350.0
+      }
+    ],
+    "subtotal": 31850.0,
+    "tax_amount": 0.0,
+    "total_amount": 31850.0,
+    "currency": "USD"
+  },
+  "guardian": {
+    "status": "REVIEW",
+    "flags": [
+      "Missing quantity and unit price for all line items, preventing verification of line item totals.",
+      "Invoice unverifiable due to incomplete line item details.",
+      "Presence of potentially hazardous materials (Cobalt Raw Material, Lithium Ion Battery Packs) without specified quantities, requiring further review for safety and compliance.",
+      "Missing Purchase Order (PO) number, which may be required for internal reconciliation."
+    ],
+    "reasoning": "The invoice requires review due to critical missing data. All line items lack both 'qty' (quantity) and 'unit_price', making it impossible to verify the calculated 'total' for each item or the overall invoice accuracy. Additionally, the invoice includes 'Cobalt Raw Material' and 'Lithium Ion Battery Packs', which are materials with inherent safety considerations. Without specified quantities, a full assessment of potential risks or compliance with handling regulations is not possible. The absence of a Purchase Order (PO) number is also noted as it is often crucial for procurement and reconciliation processes."
+  }
+}

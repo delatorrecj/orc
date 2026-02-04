@@ -1,0 +1,18 @@
+{
+  "meta": {
+    "source": "EDI-Gateway",
+    "timestamp": 1718000000
+  },
+  "payload": {
+    "document_type": "INVOICE",
+    "parties": {
+      "seller": "FastTrack Logistics",
+      "buyer": "OurCompany"
+    },
+    "financials": {
+      "tax_scheme": "VAT",
+      "total_gross": 12500.5,
+      "currency": "EUR"
+    }
+  }
+}

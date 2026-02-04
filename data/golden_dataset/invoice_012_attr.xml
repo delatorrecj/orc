@@ -1,0 +1,1 @@
+<Transaction type="invoice" status="final"><Payer id="US-999" /><Payee id="DE-555" /><Amount currency="USD">1000.00</Amount></Transaction>

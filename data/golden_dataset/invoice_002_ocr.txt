@@ -1,0 +1,15 @@
+
+    INVOICE # 99283
+    DATE: 12/05/2024
+    VENDOR: Global Chip Foundry
+
+    QTY   DESC            UNIT PRICE    TOTAL
+    100   Silicone Wafers $500.00       $50,000.00
+    20    Cooling Fans    $50.00        $1,000.00
+
+    SUBTOTAL: $51,000.00
+    TAX (8%): $4,080.00
+    TOTAL DUE: $55,080.00
+
+    *Payment received thanks*
+    

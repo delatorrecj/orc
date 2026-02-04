@@ -1,0 +1,22 @@
+{
+  "invoice_id": "INV-2024-888",
+  "date": "2024-06-15",
+  "vendor": {
+    "name": "Rare Earth Materials Ltd",
+    "address": "88 Mining Rd, Perth, Australia"
+  },
+  "currency": "AUD",
+  "line_items": [
+    {
+      "sku": "LITH-ION-BAT",
+      "qty": 500,
+      "price": 120.0
+    },
+    {
+      "sku": "COBALT-raw",
+      "qty": 50,
+      "price": 400.0
+    }
+  ],
+  "total_amount": 80000.0
+}

@@ -1,0 +1,6 @@
+
+    [User: LogisticsMgr] Hey, just confirming the urgent shipment fee.
+    [User: VendorRep] Yeah, adding $500 rush fee to Order #999.
+    [User: LogisticsMgr] Cool, total is now $1500?
+    [User: VendorRep] Correct. $1000 base + $500 rush. Send it to Accounts Payable.
+    

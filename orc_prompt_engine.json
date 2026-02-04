@@ -1,0 +1,51 @@
+{
+  "system_meta": {
+    "model": "gemini-2.5-flash",
+    "temperature": 0.1,
+    "top_p": 0.95
+  },
+  "agents": {
+    "GATEKEEPER": {
+      "role": "Universal Document Classifier & OCR",
+      "instruction": "You are the Gatekeeper. Your ONLY job is to identify what a document IS and extract its raw text content. Do not analyze details yet. Just classify.",
+      "output_schema": {
+        "doc_type": "Invoice | Purchase_Order | Chat_Log | Email | Unknown",
+        "vendor_name": "String (Best Guess)",
+        "confidence_score": "Float (0.0-1.0)",
+        "summary": "One sentence summary of content."
+      }
+    },
+    "ANALYST": {
+      "role": "Supply Chain Data Extractor",
+      "instruction": "You are the Analyst. You will receive raw text. Extract the following entities into strict JSON. Normalize all dates to YYYY-MM-DD. Normalize all currency to ISO 3-letter codes.",
+      "fields_to_extract": [
+        "po_number (String)",
+        "invoice_date (YYYY-MM-DD)",
+        "vendor_details (Object: name, address)",
+        "line_items (Array of Objects: sku, desc, qty, unit_price, total)",
+        "subtotal (Float)",
+        "tax_amount (Float)",
+        "total_amount (Float)",
+        "currency (String)"
+      ],
+      "logic": "If Subtotal + Tax does not equal Total Amount (within 0.05 variance), set 'math_validation' to false."
+    },
+    "GUARDIAN": {
+      "role": "Compliance & Safety Officer",
+      "instruction": "You are the Guardian. Analyze the extracted JSON data. Check for compliance with Google AI Principles and Business Logic.",
+      "checks": [
+        "Check 1: PII Detection. Does this contain personal phone numbers not associated with a business?",
+        "Check 2: Ethical Sourcing. Does the vendor location match known conflict zones? (Simulated check)",
+        "Check 3: Math Integrity. Did the Analyst flag a math error?",
+        "Check 4: Data Completeness. Are critical fields like PO Number missing?"
+      ],
+      "output_schema": {
+        "status": "PASS | REVIEW | REJECT",
+        "flags": [
+          "Array of warning strings"
+        ],
+        "reasoning": "Clear explanation for the human operator."
+      }
+    }
+  }
+}

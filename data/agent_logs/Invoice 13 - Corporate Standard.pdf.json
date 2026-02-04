@@ -1,0 +1,58 @@
+{
+  "file": "Invoice 13 - Corporate Standard.pdf",
+  "gatekeeper": {
+    "doc_type": "Invoice",
+    "vendor_name": "Apex Logic Supply Co.",
+    "confidence_score": 0.98,
+    "summary": "This document is an invoice from Apex Logic Supply Co. to Hackathon Gemini Team for IT equipment and services, totaling $71,120.25, with a due date of November 24, 2024."
+  },
+  "analyst": {
+    "po_number": "PO-99283",
+    "invoice_date": "2024-10-24",
+    "vendor_details": {
+      "name": "Apex Logic Supply Co.",
+      "address": "123 Silicon Way\nSan Jose, CA 94088\nUSA"
+    },
+    "line_items": [
+      {
+        "sku": "",
+        "desc": "NVIDIA H100 Tensor Core GPU",
+        "qty": 2,
+        "unit_price": 30000.0,
+        "total": 60000.0
+      },
+      {
+        "sku": "",
+        "desc": "High-Performance Server Rack (42U)",
+        "qty": 1,
+        "unit_price": 2500.0,
+        "total": 2500.0
+      },
+      {
+        "sku": "",
+        "desc": "Cooling Unit - Liquid Loop",
+        "qty": 4,
+        "unit_price": 500.0,
+        "total": 2000.0
+      },
+      {
+        "sku": "",
+        "desc": "Shipping & Handling (Air Freight)",
+        "qty": 1,
+        "unit_price": 1200.0,
+        "total": 1200.0
+      }
+    ],
+    "subtotal": 65700.0,
+    "tax_amount": 5420.25,
+    "total_amount": 71120.25,
+    "currency": "USD"
+  },
+  "guardian": {
+    "status": "REVIEW",
+    "flags": [
+      "Missing SKU information for all line items."
+    ],
+    "reasoning": "The invoice data is internally consistent, and all financial calculations (line item totals, subtotal, total amount) are correct. The vendor and recipient details are clear, and the items purchased (GPUs, servers) are relevant for an AI-focused team. However, all 'sku' fields for the line items are empty. While this does not impact the financial accuracy of the invoice, it represents a data completeness issue that could affect inventory management or detailed product tracking. No violations of Google AI Principles were identified, as the transaction is for standard IT equipment and appears to support beneficial technological development."
+  }
+}

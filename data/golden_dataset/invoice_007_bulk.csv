@@ -1,0 +1,4 @@
+PO_Number,SKU,Quantity,Unit_Price,Total,Vendor
+PO-9001,GPU-H100,10,25000,250000,Apex Logic
+PO-9001,CABLE-OPT,50,100,5000,Apex Logic
+PO-9002,SERVER-RACK,2,5000,10000,Global Chip

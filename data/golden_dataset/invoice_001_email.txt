@@ -1,0 +1,18 @@
+
+    From: sales@apexlogic.com
+    To: procurement@ourcompany.com
+    Subject: Invoice for June Deliveries
+
+    Hi Team,
+
+    Attached is the billing for the H100 units.
+    Total amount is $45,000 USD.
+    Payment due by July 30th.
+
+    Items:
+    - 5x NVIDIA H100 GPUs ($8,000 ea)
+    - Shipping/Handling: $5,000
+
+    Bank: SVB (Account ending in 4432)
+    Reference: PO-2024-001
+    
