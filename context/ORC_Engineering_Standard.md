@@ -1,8 +1,8 @@
 # Eco-Orchestrator Comprehensive Engineering Guidelines
 
-**Version:** 2.1 (Enterprise Production)
+**Version:** 2.2 (Enterprise Production)
 **Context:** Enterprise Supply Chain Orchestration
-**Core Constraint:** Compliance with [Google AI Principles](google_ai_principles.md).
+**Core Constraint:** Compliance with [Google AI Principles](google_ai_principles.md) and "Glass Box" Philosophy.
 
 ## 1. Architecture & Tech Stack (Adapted)
 

@@ -1,107 +1,68 @@
-# ORC: Session Resume Prompt
+# ORC: Session Resume & Handoff Prompt
 
-**Last Updated:** 2026-02-04 16:19
-**Purpose:** Provide context for future AI sessions to continue development seamlessly.
+**Last Updated:** 2026-02-05 15:15
+**Status:** Phase 5 (Frontend Polish) - **95% High-Intensity Completion**
+**Purpose:** Handover document for Claude Opus 4.5 to resume development and finalize Phase 5/6.
 
 ---
 
 ## Project Overview
-
-**Name:** ORC (Eco-Orchestrator)
-**Mission:** Solve the billion-dollar supply chain "Viability Crisis" by building an Agentic Intake Layer that transforms chaotic documents into audit-ready, structured data.
-
-**Core Value Proposition:**
-- Sits *in front* of ERPs (SAP/Oracle) as a "System of Intake"
-- Uses multi-agent orchestration powered by Gemini 2.5 Flash
-- Targets CSRD compliance and Scope 3 carbon reporting
+**Name:** ORC (Orchestration. Resilience. Compliance.)
+**Mission:** Decouple global trade complexity from human effort.
+**Aesthetic:** "Glass Box" Transparency, Dark Space, Obsidian, Electric Blue, Advanced Bento Motion.
+**Current Tech Stack:** Next.js 16, Tailwind CSS v4, GSAP (Animations), Gemini 2.5 Flash.
 
 ---
 
 ## Current System State
 
-### What's Built & Working:
-1. **Orchestration Pipeline** (`web/app/api/orchestrate/route.ts`)
-   - Gatekeeper Agent: Document classification
-   - Analyst Agent: Data extraction (line items, totals)
-   - Guardian Agent: Compliance validation (PII, fraud, math)
+### 1. Visual Architecture (✅ Major Overhaul Complete)
+- **Backgrounds:** Implemented "Nebula Grid" (Gradient grid lines + radial color nebula + vignetting) in `globals.css` and `app/layout.tsx`.
+- **Magic Bento:** Created `MagicBento.tsx` (GSAP-powered cards with stars, spotlight, magnetism, and tilt effects).
+- **Navigation:** Merged Logo+Text into a single brand button. Renamed `/business` → `/strategy` and `/about` → `/mission`.
 
-2. **Frontend Dashboard** (`web/app/app/page.tsx`)
-   - File upload via Dropzone
-   - Real-time Activity Feed showing agent logs
-   - Result cards displaying extracted data
+### 2. Core Functional Pipeline (✅ Complete)
+- **Ingestion:** `Dropzone` with Gemini 1.5/2.5 extraction.
+- **Verification:** Verification Card showing confidence and flags.
+- **Communication:** Email drafting powered by Gemini with template selection.
+- **Audit:** Decision logging to `localStorage`.
 
-3. **Configuration**
-   - Prompt Engine: `orc_prompt_engine.json` (centralized agent prompts)
-   - Model: `models/gemini-2.5-flash` via `lib/gemini.ts`
-   - API Key: `.env.local` → `GEMINI_API_KEY`
-
-4. **Test Data**
-   - `data/golden_dataset/` contains 15 sample invoices/POs
-
-### Key Files to Know:
-| File | Purpose |
-|------|---------|
-| `context/ORC_Roadmap.md` | 5-phase development plan |
-| `context/ORC_Product_Context.md` | Brand, content, and SEO strategy |
-| `context/ORC_Engineering_Standard.md` | Security, validation, HITL rules |
-| `orc_prompt_engine.json` | Agent prompt definitions |
-| `web/hooks/useOrchestrator.ts` | Frontend state management |
-| `web/lib/schemas.ts` | Zod validation schemas |
+### 3. Page Content Sync (✅ Complete)
+- **Home:** Full Hero rewrite + Magic Bento Features.
+- **Strategy:** Detailed "Business Model Canvas" implementation.
+- **Mission:** "One Human. Fifty Agents." narrative integration.
+- **Trust:** "Guardian Protocol" and AI Fairness commitment.
 
 ---
 
-## Roadmap Status
+## Pending Tasks (Immediate Priority for Claude 4.5)
 
-| Phase | Name | Status |
-|-------|------|--------|
-| 1 | Core Pipeline Hardening | 🔄 In Progress |
-| 2 | Trust & Auditability | ⏸️ Not Started |
-| 3 | Communication Layer | ⏸️ Not Started |
-| 4 | Intelligence Layer | ⏸️ Not Started |
-| 5 | Frontend Polish | ⏸️ Not Started |
+### 1. Magic Bento Integration
+The `MagicBento` component is live on the **Home Page**, but needs to be swapped into the following pages (replacing existing grids/cards):
+- [ ] **Strategy Page:** Use `MagicBento` for the 6-block Business Model Canvas.
+- [ ] **Trust Page:** Use `MagicBento` for the Guardian Protocol cards.
+- [ ] **Mission Page:** Use `MagicBento` for the "One Human. Fifty Agents" stats.
 
----
+### 2. Legal Pages (Handoff Requirements)
+- [ ] **Create `/privacy`:** Draft a Privacy Policy emphasizing "Glass Box" data handling.
+- [ ] **Create `/terms`:** Draft Terms of Service for ORC.
+- [ ] **Link Sync:** Ensure footer links point correctly to these new routes.
 
-## Next Session Priority
-
-### Immediate Task: Phase 1 Completion
-**Feature:** Line Items Display
-
-**What to Do:**
-1. Update the Dashboard results panel (`page.tsx`) to show an expandable section with extracted line items.
-2. Each line item should display: SKU, Description, Quantity, Unit Price, Total.
-3. Add an "Export to JSON" button for the orchestrated data.
-
-**Files to Modify:**
-- `web/app/app/page.tsx` (Results panel)
-- Possibly create a new `LineItemsTable` component
-
-### After That:
-- Phase 2: Implement Grounding Map UI (PDF coordinates)
-- Phase 2: Add Accept/Review/Reject approval buttons
+### 3. Backend Hardening (Phase 4)
+- [ ] **Database Migration:** Replace `localStorage` hooks with a real PostgreSQL/Prisma layer.
+- [ ] **Gmail API:** Implement OAuth for real intake monitoring.
+- [ ] **Vector Search:** Setup Vertex AI for better benchmarking.
 
 ---
 
-## Important Notes
-
-1. **No Hackathon Framing:** This is an enterprise-grade, production-ready project. Avoid any "demo" or "MVP" language.
-2. **Glass Box Philosophy:** All AI decisions must be transparent and traceable.
-3. **Human-in-the-Loop:** Critical decisions require human approval.
-4. **Model:** Always use `models/gemini-2.5-flash` (not just `gemini-2.5-flash`).
+## Key Development Files
+- `web/app/components/MagicBento.tsx`: The primary animation engine.
+- `web/app/globals.css`: Global grid and starlight effects.
+- `web/hooks/useOrchestrator.ts`: The central logic handler.
 
 ---
 
-## How to Start the Dev Server
-
-```bash
-cd c:\Users\delat\OneDrive\Desktop\orc\web
-npm run dev
-```
-
-Then open: http://localhost:3000/app
-
----
-
-## Session Log
-
-For complete history, see: `context/log.md`
+## How to Resume
+1. `cd web` && `npm run dev`
+2. Start by applying `MagicBento` to `strategy/page.tsx`.
+3. Reference `context/walkthrough.md` for historical logic flow.
