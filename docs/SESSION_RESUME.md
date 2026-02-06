@@ -1,26 +1,26 @@
 # ORC Session Resume
 
-**Last Session:** 2026-02-06
-**Phase Completed:** Phase 9 (Agentic AI Mesh)
-**Next Phase:** Phase 11 (Proprietary Cognitive Engine)
+**Last Session:** 2026-02-07
+**Phase Completed:** Phase 11 (Zero-Cost Intelligence & Cloud Deployment)
+**Next Phase:** Phase 12.1 (ONNX Optimization)
 
-## 🛑 System State
-- **Architecture:** Agentic Loop (Analyst → Guardian → Retry).
-- **Security:** Multi-Key Rotation (3 Gemini Keys) implemented on both Backend and Frontend.
-- **Frontend Check:** PDF Viewer fixed (Polyfill) & Email Generator fixed (Key Rotation).
-- **Data:** Kaggle Datasets uploaded (`c:\Users\delat\Downloads\kaggle_datasets`).
-- **Feature:** "Self-Correction" is live but needs a frontend UI update.
+## 🛑 System State: Hybrid Architecture (ACTIVE)
+-   **Hosting:** Railway (Python Service) running `ml_engine/serve.py`.
+-   **Model Source:** Hugging Face Hub (`delatorrecj/orc-invoice-v1`).
+-   **Configuration:** `HF_MODEL_ID` env var triggers runtime download.
+-   **Build:** Optimized `torch-cpu` build (<2GB image) avoids Railway memory limits.
+-   **Training:** Moved to Google Colab (Free GPU) -> Upload to HF.
 
-## ⚠️ Critical Data Findings
-- **Mismatch:** The `invoices.csv` (synthetic people) does **NOT** match `batch_1` (scanned invoices).
-- **Solution:** We cannot use the CSV for training. We must use the **ORC Agent (Gemini)** to "Auto-Label" the images in `batch_1` to create our own `ground_truth.json`.
+## ⚠️ Critical Configuration
+-   **Procfile:** Points to `ml_engine/serve.py`.
+-   **requirements.txt:** Locked to `torch==2.1.2+cpu` with `--extra-index-url`. **DO NOT CHANGE** without testing Docker build size.
+-   **Secrets:** API Keys verified and rotated. `HF_TOKEN` stored in Colab (not repo).
 
-## 🚀 Next Steps (The "ML Pivot")
-1.  **Auto-Labeling Job:** Write a script to iterate through `batch_1`, send to Gemini, and save JSONs.
-    - *Goal:* Create 100 labeled samples for the "Golden Dataset".
-2.  **Training Pipeline:** Set up `ml_engine/train.py` to fine-tune LayoutLMv3.
-3.  **Restructure:** Rename `scripts` -> `backend` (requires server restart).
+## 🚀 Next Steps (Phase 12)
+1.  **ONNX Quantization:** Run `quantize.py` to compress model to <150MB for 4x faster inference.
+2.  **Vector DB:** Benchmark Vertex AI vs. Local FAISS for RAG.
+3.  **UI Polish:** Add "Training Mode" indicator to Frontend.
 
 ## 📝 Pending Tasks
-1.  [ ] Create `ml_engine/auto_labeler.py`.
-2.  [ ] Update Frontend to show "Training Progress".
+1.  [ ] Run `ml_engine/quantize.py` and upload `model_quantized.onnx`.
+2.  [ ] Update `serve.py` to use `ORTModelForTokenClassification`.
