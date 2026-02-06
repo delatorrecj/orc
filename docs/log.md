@@ -357,5 +357,7 @@
 - **Status:** Running on CPU.
 - **Speed:** Very slow (~5 mins/step). This is expected for LayoutLMv3 on CPU.
 - **Progress:** 1.5% (15/1000).
-- **Recommendation:** Let it run overnight or deploy to a GPU instance if available. For now, the "Zero Cost" path requires patience.
+- **Use Case:** Train on Free T4 GPU (~15 mins) -> Deploy locally.
+- **Artifacts:** `docs/COLAB_GUIDE.md`, `ml_engine/requirements_training.txt`.
+- **Status:** Packaged and Pushed. Ready for Colab.
 
