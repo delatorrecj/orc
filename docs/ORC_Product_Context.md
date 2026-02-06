@@ -15,8 +15,8 @@
 1.  **Home (/)**: The Hook. "Order from Chaos."
 2.  **Product (/app)**: The Demo. The "Glass Box" Dashboard.
 3.  **Trust (/trust)**: The Compliance. Google AI Principles & Guardrails.
-4.  **Business Model (/business)**: The Strategy. The Canvas & Viability.
-5.  **About (/about)**: The Story. "One Human + 50 Agents."
+4.  **Strategy (/strategy)**: The Strategy. The Canvas & Viability.
+5.  **Mission (/mission)**: The Story. "One Human + 50 Agents."
 
 ### 1.2 SEO & "Entity Moats" (Metadata)
 We embed schema data that defines ORC not just as software, but as a **business entity**.
@@ -66,7 +66,7 @@ We embed schema data that defines ORC not just as software, but as a **business 
     *   **Fairness:** "Bias-checked vendor scoring."
     *   **Accountability:** "Every flag includes a 'Why'."
 
-#### D. Business Model (/business)
+#### D. Strategy (/strategy)
 *   **Goal:** Prove Viability & Strategic Depth.
 *   **Headline:** "The Blueprint."
 *   **Sub-headline:** "How ORC captures value in the $20B Supply Chain Software market."
@@ -103,7 +103,7 @@ We embed schema data that defines ORC not just as software, but as a **business 
         *   **Infrastructure:** Cloud Hosting & Storage.
         *   **R&D:** Engineering & Design team.
 
-#### E. About (/about)
+#### E. Mission (/mission)
 *   **Goal:** The "Solo-Unicorn" Narrative.
 *   **Headline:** "One Human. Fifty Agents."
 *   **Sub-headline:** "Redefining the 'Enterprise Team' in the Age of AI."

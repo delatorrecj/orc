@@ -1,8 +1,10 @@
 # ORC System Overview
 
-**Version:** 6.0 | **Last Updated:** 2026-02-06
+**Version:** 7.0 | **Last Updated:** 2026-02-06
 
 ---
+
+## Current State: Phase 9.5 Complete
 
 ## What We Have
 
@@ -20,6 +22,7 @@
 | 7. Engine | ✅ | Python/FastAPI Migration |
 | 8. Intelligence | ✅ | Grounding Overlay, Fraud Detection, Gmail OAuth |
 | 9. Hyperautomation | ✅ | Agentic Self-Correction Loop |
+| 9.5. System Polish | ✅ | Multi-Key Rotation, Restructure (scripts → backend) |
 
 ### Current Metrics vs Industry Benchmarks
 | Metric | ORC Current | Industry Best |
@@ -32,17 +35,17 @@
 
 ## Where We're Going
 
-### Immediate (Next Step)
-1. **Frontend Integration of Agentic Loop** — Visualize "Analyst Retrying..." events.
-2. **Persistent Storage** — Migrate from localStorage/JSON to PostgreSQL.
-3. **Real-time Updates** — WebSocket/SSE for streaming logs.
+### Immediate (Phase 11: ML Pivot)
+1. **Auto-Labeling Pipeline** — Use Gemini to label Kaggle `batch_1` images → `ground_truth.json`.
+2. **Model Training** — Fine-tune LayoutLMv3 on labeled data.
+3. **Hybrid Mesh** — Local Model (Tier 1) → Gemini fallback (Tier 2).
 
 ### Short-term (Next Sprint)
 | Feature | Industry Driver |
 |---------|-----------------|
+| **Auto-Labeling** | Create Golden Dataset from Kaggle images |
 | **Database Migration** | Enterprise data persistence (Prisma + Postgres) |
-| **RPA Connectors** | Integration with legacy ERPs (SAP/Oracle) |
-| **Multi-modal Intake** | Voice instructions for edge-case handling |
+| **Training UI** | Show "Training Progress" in Frontend |
 
 ### Long-term Vision
 | Goal | Target |
@@ -72,10 +75,11 @@
 
 | Resource | Purpose |
 |----------|---------|
-| `scripts/api_server.py` | Agentic Orchestrator (FastAPI) |
+| `backend/main.py` | Agentic Orchestrator (FastAPI) |
 | `web/app/components/DocumentPreview.tsx` | Glass Box Rendering |
-| `context/ORC_Roadmap.md` | Full development phases |
+| `docs/ORC_Roadmap.md` | Full development phases |
 | `docs/GMAIL_SETUP.md` | OAuth Configuration Guide |
+| `docs/ML_STRATEGY.md` | Cognitive Engine Pivot Strategy |
 
 ---
 
@@ -83,8 +87,8 @@
 
 1. **Start Backend:**
    ```bash
-   cd scripts
-   python api_server.py
+   cd backend
+   python main.py
    ```
 2. **Start Frontend:**
    ```bash

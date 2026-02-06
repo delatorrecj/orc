@@ -1,4 +1,4 @@
-# Eco-Orchestrator Comprehensive Engineering Guidelines
+# ORC Comprehensive Engineering Guidelines
 
 **Version:** 2.2 (Enterprise Production)
 **Context:** Enterprise Supply Chain Orchestration

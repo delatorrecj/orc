@@ -58,3 +58,7 @@ Desktop.ini
 # Uncomment if you want to ignore one:
 # package-lock.json
 # yarn.lock
+
+# ---- ML Engine ----
+ml_engine/ground_truth/
+*.jsonl

@@ -129,7 +129,7 @@ class Guardian(BaseAgent):
 # --- ORCHESTRATOR ---
 
 def run_orchestrator():
-    print("--- ECO-ORCHESTRATOR INITIATED ---")
+    print("--- ORC INITIATED ---")
     print(f"Scanning directory: {DATASET_DIR}")
     
     files = list(DATASET_DIR.glob("*"))
