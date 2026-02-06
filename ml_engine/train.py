@@ -13,7 +13,7 @@ from transformers import (
 import evaluate
 
 from sklearn.model_selection import train_test_split
-from dataset import InvoiceDataset
+from dataset import InvoiceDataset, LABELS
 
 # Configuration
 MODEL_NAME = "microsoft/layoutlmv3-base"
@@ -24,6 +24,9 @@ LEARNING_RATE = 5e-5
 NUM_EPOCHS = 10
 MAX_STEPS = 1000  # Cap valid steps (optional)
 
+# Global ID Map for Metrics
+id2label = {i: l for i, l in enumerate(LABELS)}
+
 def compute_metrics(p):
     metric = evaluate.load("seqeval")
     predictions, labels = p
@@ -31,11 +34,11 @@ def compute_metrics(p):
 
     # Remove ignored index (special tokens)
     true_predictions = [
-        [dataset.id2label[p] for (p, l) in zip(prediction, label) if l != -100]
+        [id2label[p] for (p, l) in zip(prediction, label) if l != -100]
         for prediction, label in zip(predictions, labels)
     ]
     true_labels = [
-        [dataset.id2label[l] for (p, l) in zip(prediction, label) if l != -100]
+        [id2label[l] for (p, l) in zip(prediction, label) if l != -100]
         for prediction, label in zip(predictions, labels)
     ]
 

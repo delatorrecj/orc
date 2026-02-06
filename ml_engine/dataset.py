@@ -5,6 +5,15 @@ import torch
 from torch.utils.data import Dataset
 from transformers import LayoutLMv3Processor
 
+# Schema Definition (BIO Scheme)
+LABELS = [
+    "O", 
+    "B-TOTAL", "I-TOTAL", 
+    "B-ID", "I-ID", 
+    "B-DATE", "I-DATE", 
+    "B-VENDOR", "I-VENDOR"
+]
+
 class InvoiceDataset(Dataset):
     def __init__(self, data_dir, processor=None, max_length=512):
         """
@@ -29,14 +38,7 @@ class InvoiceDataset(Dataset):
                 elif f"{base_name}.png" in all_files:
                     self.files.append(base_name)
 
-        # Schema Definition (BIO Scheme)
-        self.label_list = [
-            "O", 
-            "B-TOTAL", "I-TOTAL", 
-            "B-ID", "I-ID", 
-            "B-DATE", "I-DATE", 
-            "B-VENDOR", "I-VENDOR"
-        ]
+        self.label_list = LABELS
         self.label2id = {l: i for i, l in enumerate(self.label_list)}
         self.id2label = {i: l for i, l in enumerate(self.label_list)}
 
