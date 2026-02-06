@@ -190,10 +190,61 @@ Return JSON:
     )
 
 
-def run_analyst(pdf_path: Path, text: str) -> AnalystResult:
+def _ai_refine_extraction(text: str, previous_result: AnalystResult, feedback: str) -> AnalystResult:
+    """
+    Refine extraction based on Guardian feedback.
+    """
+    model = get_model()
+    if not model:
+        return previous_result
+    
+    prev_json = previous_result.model_dump_json()
+    
+    prompt = f"""
+You are a senior data analyst. Your previous extraction contained errors.
+Refine the extraction based on the feedback.
+
+DOCUMENT TEXT:
+{text[:10000]}
+
+PREVIOUS EXTRACTION:
+{prev_json}
+
+FEEDBACK (ERRORS TO FIX):
+{feedback}
+
+Return corrections as JSON with keys: line_items (array of objects with qty, desc, unit_price, total, sku), subtotal, tax, total, currency.
+ Ensure all math is consistent (qty * unit_price = total).
+"""
+    try:
+        response = model.generate_content(prompt)
+        # Parse response (handle potential markdown blocks)
+        cleaned_text = response.text.replace("```json", "").replace("```", "").strip()
+        data = json.loads(cleaned_text)
+        
+        line_items = [LineItem(**item) for item in data.get("line_items", [])]
+        
+        return AnalystResult(
+            line_items=line_items,
+            subtotal=data.get("subtotal", 0.0),
+            tax_amount=data.get("tax", 0.0),
+            total_amount=data.get("total", 0.0),
+            currency=data.get("currency", "USD"),
+            extraction_method="ai_refinement"
+        )
+    except Exception as e:
+        print(f"[Analyst] Refinement failed: {e}")
+        return previous_result
+
+def run_analyst(pdf_path: Path, text: str, feedback: Optional[str] = None, previous_result: Optional[AnalystResult] = None) -> AnalystResult:
     """
     Extract structured data from document using pdfplumber + AI.
+    Supports self-correction if feedback is provided.
     """
+    if feedback and previous_result:
+        print(f"⚡ Analyst running in correction mode. Feedback: {feedback}")
+        return _ai_refine_extraction(text, previous_result, feedback)
+
     # Step 1: Extract tables with pdfplumber
     tables = extract_tables(pdf_path)
     line_items_table = find_line_items_table(tables)
@@ -458,6 +509,35 @@ async def extract_document(file: UploadFile = File(...)):
             
             analyst_result = run_analyst(tmp_path, text)
             guardian_result, fraud_data = run_guardian(gatekeeper_result, analyst_result)
+
+            # --- Self-Correction Loop ---
+            MAX_RETRIES = 2
+            retries = 0
+            while guardian_result.status == "REJECT" and retries < MAX_RETRIES:
+                retries += 1
+                print(f"↺ [Orchestrator] Self-Correction Attempt {retries}/{MAX_RETRIES}")
+                
+                # Format feedback
+                issues = []
+                if guardian_result.flags:
+                    issues.append(f"Flags: {', '.join(guardian_result.flags)}")
+                if fraud_data and fraud_data.flags:
+                    issues.append(f"Fraud Flags: {', '.join([f.message for f in fraud_data.flags])}")
+                    
+                feedback = ". ".join(issues)
+                
+                if not feedback:
+                    break
+                
+                # Retry Analyst with feedback
+                analyst_result = run_analyst(tmp_path, text, feedback=feedback, previous_result=analyst_result)
+                
+                # Re-evaluate with Guardian
+                guardian_result, fraud_data = run_guardian(gatekeeper_result, analyst_result)
+                
+                if guardian_result.status == "PASS":
+                    print("✅ [Orchestrator] Correction Successful!")
+                    break
         
         processing_time = int((time.time() - start_time) * 1000)
         
