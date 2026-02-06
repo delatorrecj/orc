@@ -7,8 +7,15 @@
 .env.local
 .env.*.local
 *.env
+*.backup
+*.bak
+*.tmp
 
-# ---- Node / Next.js ----
+# ---- Data & Logs ----
+data/agent_logs/
+data/raw/
+*.log
+npm-debug.log*
 node_modules/
 .next/
 out/
