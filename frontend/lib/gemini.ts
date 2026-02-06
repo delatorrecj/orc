@@ -1,4 +1,4 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import { GoogleGenerativeAI, GenerativeModel } from "@google/generative-ai";
 
 const apiKeys = (process.env.GEMINI_API_KEYS || process.env.GEMINI_API_KEY || "").split(",").map(k => k.trim()).filter(Boolean);
 
@@ -27,7 +27,7 @@ function getRotatedModel() {
 }
 
 // Proxy object to dynamically get a fresh model instance with a rotated key on each method call
-export const model = new Proxy({} as unknown, {
+export const model = new Proxy({} as GenerativeModel, {
     get: (_, prop) => {
         // Intercept generateContent to handle 429 retries
         if (prop === 'generateContent') {

@@ -352,5 +352,10 @@
 
 ### Next Steps (Post-Training):
 1.  Run `python ml_engine/quantize.py`: Optimize model size.
-2.  Deploy `ml_engine/` to HuggingFace Spaces.
+
+### Training Update (Run 1)
+- **Status:** Running on CPU.
+- **Speed:** Very slow (~5 mins/step). This is expected for LayoutLMv3 on CPU.
+- **Progress:** 1.5% (15/1000).
+- **Recommendation:** Let it run overnight or deploy to a GPU instance if available. For now, the "Zero Cost" path requires patience.
 
