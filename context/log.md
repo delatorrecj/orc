@@ -167,4 +167,107 @@
 - **Legal Compliance:** Create `/privacy` and `/terms` pages.
 - **Phase 4 Integration:** Initiate real backend (PostgreSQL) and Vector Search.
 
+---
 
+## [2026-02-05] Phase 5 Detailed Sub-Phases (Merged from walkthrough.md)
+
+### 5.1 SEO & "Glass Box" Metadata
+- Configured `layout.tsx` with Brand Essence title template and description.
+- Set `orc.png` as Favicon and OpenGraph image.
+- Removed default Vercel assets.
+
+### 5.2 Mobile Responsiveness
+- **Dashboard:** Added responsive padding (`px-4 sm:px-6`).
+- **LineItemsTable:** Added `overflow-x-auto` to prevent layout breakage on small screens.
+
+### 5.3 Schema.org & Brand Assets
+- **Business Model Context:** Updated `ORC_Product_Context.md` with detailed canvas (Partners, Revenue, Segments).
+- **Schema Implementation:** Created `SchemaData` component injecting detailed JSON-LD.
+- **Brand Refresh:** Replaced assets with new `orc.png` / `orc.svg` and cleaned up workspace.
+
+### 5.4 Performance Optimization
+- **Font Strategy:** Migrated from `@import` to `next/font/google` for `Inter` and `JetBrains Mono` to eliminate render-blocking CSS.
+- **Build Verification:** Verified production build (`npm run build`) succeeded with optimized asset chunking.
+
+### 5.5 Accessibility Audit (WCAG 2.1 AA)
+- **Interactive Elements:** Added `aria-label`, `role="button"`, and keyboard support (`Enter`/`Space`) to `Dropzone`.
+- **Navigation:** Implemented `aria-expanded` and `aria-controls` for `LineItemsTable` toggle.
+- **Modals:** Secured `ApprovalPanel` rejection modal with `role="dialog"`, `aria-modal="true"`, and label references.
+
+### 5.6 Final Animation & Asset Polish
+- **Global Branding:** Replaced generic `Terminal` icons with new `orc.png` logo in Navbar, Footer, and Dashboard Sidebar.
+- **Interactions:** Added `hover:scale` and shadow effects to Navbar brand logo and Dashboard NavItems.
+- **Landing Page:** Enhanced `FeatureCard` with lift (`-translate-y`) and shadow animations.
+
+### 5.7 Micro-Component Polish
+- **Global Styles:** Implemented custom "Obsidian/Glass" scrollbar and "Electric Blue" text selection in `globals.css` to match the design system.
+- **Component Audit:** Verified `Dropzone`, `ApprovalPanel`, and `LineItemsTable` use consistent styling and focus states.
+
+### 5.8 Phase 5.5 Revisions (Deep Branding & Content)
+- **Navigation Structure:** Renamed `/business` to `/strategy` and `/about` to `/mission`.
+- **Global Branding:** Applied a "Grid + Gradient" background overlay to `globals.css` for a unified "Glass Box" aesthetic across all pages.
+- **Hero Update:** Simplified landing page hero with "Launch ORC" and "Mission" buttons, removing clutter.
+- **Content Synchronization:**
+  - **Strategy:** Implemented full "Business Model Canvas" grid (Partners, Activities, Value, Segments, Revenue, Costs).
+  - **Mission:** Updated with "One Human. Fifty Agents" narrative and "Solo-Unicorn" statistics.
+  - **Trust:** Detailed "The Guardian Protocol" and Google AI Alignment status.
+- **Micro-Polish:** Merged Navbar Logo/Text into a single interactive button.
+
+### 5.9 Phase 5.6: Visual Overhaul & Magic Bento
+- **Advanced Backgrounds:** Implemented a complex CSS background system featuring gradient grid lines, radial nebula glows (`Blue` and `Green`), and a center-focused vignette mask for depth.
+- **Magic Bento Component:** Developed a high-performance GSAP implementation of `MagicBento`. Features include:
+  - **Dynamic Spotlight:** Cursor-following glow that illuminates grid cards.
+  - **Magnetic & Tilt Effects:** Cards respond physically to mouse proximity.
+  - **Star Particles:** Interactive starfield particles inside cards.
+  - **Ripple Click:** Visual feedback on interactions.
+- **Home Integration:** Replaced the static feature grid on the Landing Page with the new `MagicBento` component.
+- **Repository Management:** Pushed all Phase 5 changes (Polish, Accessibility, SEO, and Visuals) to the main branch.
+
+---
+
+## [2026-02-06] Session: Context Consolidation & UX Planning
+
+### Completed Actions:
+
+**1. System Overview Documentation**
+- Created comprehensive `SYSTEM_OVERVIEW.md` explaining ORC's architecture, 3-agent pipeline, features, philosophy, and roadmap.
+- Document serves as onboarding material for understanding the full system.
+
+**2. UX Enhancement Planning**
+- Identified user feedback: preference for "Manual Mode" (file upload, no OAuth).
+- Designed dual-mode architecture supporting both Manual and future Automated intake.
+- Designed phase-based workflow UX with auto-scroll transitions and visual phase indicators.
+- Created implementation plan for:
+  - `WorkflowStepper` component (Intake → Process → Review → Action)
+  - `ModeSelector` component (Manual vs Automated toggle)
+  - Phase-aware auto-scroll in dashboard
+  - Visual highlighting for active workflow phases
+
+**3. Context Cleanup**
+- Merged `walkthrough.md` content into `log.md`.
+- Deleted redundant `walkthrough.md`.
+- Updated `SESSION_RESUME.md` status.
+
+### Current System State:
+- ✅ Phase 1-3: Core Pipeline, Trust, Communication (Complete)
+- ✅ Phase 5: Frontend Polish (Complete)
+- ⏳ Phase 4: Intelligence Layer (Pending - Vector DB, Fraud Detection)
+- 🆕 Phase 6: Dual-Mode & UX Flow Transitions (In Planning)
+
+### Pending Tasks:
+1. **UX Enhancement (Phase 6):**
+   - Implement `WorkflowStepper` component
+   - Implement `ModeSelector` component
+   - Add phase-aware auto-scroll to dashboard
+   - Add visual phase highlighting
+
+2. **Magic Bento Rollout:**
+   - Apply to Strategy, Trust, Mission pages
+
+3. **Legal Pages:**
+   - Create `/privacy` and `/terms`
+
+4. **Backend (Phase 4):**
+   - PostgreSQL migration
+   - Gmail API OAuth
+   - Vector Search setup

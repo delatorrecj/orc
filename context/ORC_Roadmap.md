@@ -1,105 +1,93 @@
 # ORC: Product Roadmap
 
-**Version:** 1.0 (Enterprise Production)
-**Mission:** Build an industry-grade Agentic Intake Layer that solves the billion-dollar supply chain viability crisis.
+**Version:** 3.0 | **Last Updated:** 2026-02-06
+**Mission:** Build an industry-grade Agentic Intake Layer achieving 98% accuracy and 85% STP rate.
 
 ---
 
-## Phase 1: Core Pipeline Hardening
-**Status:** ✅ Complete
-**Goal:** Establish a robust, production-ready document processing pipeline.
+## Current Status: Foundation Complete ✅
 
-| Feature | Priority | Status | Description |
-|---------|----------|--------|-------------|
-| Document Classification (Gatekeeper) | Critical | ✅ Complete | Identify document type (Invoice, PO, etc.) |
-| Data Extraction (Analyst) | Critical | ✅ Complete | Extract line items, totals, dates |
-| Compliance Validation (Guardian) | Critical | ✅ Complete | PII, math, fraud checks |
-| Prompt Engine Architecture | High | ✅ Complete | Centralized `orc_prompt_engine.json` |
-| Error Surfacing & Logging | High | ✅ Complete | Real-time Activity Feed |
-| **Line Items Display** | High | ✅ Complete | Expandable UI showing extracted SKUs, quantities, prices |
-| **Extraction Results Export** | Medium | ✅ Complete | Download as JSON/CSV button |
+| Phase | Status | Highlights |
+|-------|--------|------------|
+| 1. Pipeline | ✅ | 3-agent system, line item extraction |
+| 2. Trust | ✅ | HITL approval, PII detection, audit |
+| 3. Communication | ✅ | AI email drafting, templates |
+| 5. Frontend | ✅ | Mobile, SEO, accessibility |
+| 6. UX | ✅ | WorkflowStepper, phase-based flow |
+| 7. Python Engine | ✅ | pdfplumber + Gemini FastAPI |
 
----
-
-## Phase 2: Trust & Auditability
-**Status:** ✅ Complete
-**Goal:** Enable enterprise-grade audit trails and human oversight.
-
-| Feature | Priority | Status | Description |
-|---------|----------|--------|-------------|
-| **Grounding Map** | Critical | 🔲 Pending (Phase 2.5) | PDF page + bounding box coordinates for every extracted value |
-| **Verification Card UI** | Critical | ✅ Complete | Side-by-side PDF viewer with extracted data overlay |
-| **Human Approval Flow** | Critical | ✅ Complete | Accept/Review/Reject buttons for flagged documents |
-| **PII Redaction Layer** | High | ✅ Complete | Detection + warning indicators (Cloud DLP deferred) |
-| Confidence Threshold Enforcement | High | ✅ Complete | Block automation if confidence < 90% |
-| Audit Log Database | Medium | ✅ Complete | localStorage-based with JSON export |
+**Current Metrics:** ~90% accuracy, 8s processing, 70% STP
 
 ---
 
-## Phase 3: Communication Layer (Module A)
-**Status:** 🔄 Tier 1 Complete
-**Goal:** Autonomous supplier outreach and response monitoring.
+## Phase 8: Intelligence Layer (This Sprint)
 
-| Feature | Priority | Status | Description |
-|---------|----------|--------|-------------|
-| **Email Drafting Agent** | Critical | ✅ Complete | Gemini-powered email generation with templates |
-| Template System | High | ✅ Complete | Inquiry, Follow-up, Negotiation, Confirmation |
-| Draft Approval Workflow | High | ✅ Complete | Review, edit, approve/reject before sending |
-| Copy to Clipboard | High | ✅ Complete | Manual send workflow (Gmail API deferred) |
-| Communication Log | Medium | ✅ Complete | localStorage-based draft history |
-| **Email Intake Agent** | Critical | 🔲 Deferred (Tier 2) | Gmail API integration for sending/receiving |
-| Supplier Sentiment History | High | 🔲 Deferred | Track response patterns per vendor |
-| Auto-Follow-Up Scheduler | Medium | 🔲 Deferred | Escalation logic for non-responders |
+**Target:** 95% accuracy, <5s processing, 80% STP
+
+| Feature | Priority | Status | Industry Benchmark |
+|---------|----------|--------|-------------------|
+| Grounding Map | P0 | 🔲 | Visual proof of extraction source |
+| Gmail API Integration | P0 | 🔲 | Auto-ingest (70% labor reduction) |
+| Vector DB (Vertex AI) | P0 | 🔲 | Benchmark comparison |
+| Fraud Detection | P1 | 🔲 | Round number + variance alerts |
+| Batch Golden Dataset Test | P1 | 🔲 | Validate 95%+ accuracy |
 
 ---
 
-## Phase 4: Intelligence Layer
-**Status:** Not Started
-**Goal:** Contextual benchmarking and anomaly detection.
+## Phase 9: Hyperautomation (Next Sprint)
 
-| Feature | Priority | Status | Description |
-|---------|----------|--------|-------------|
-| **Vector DB Setup** | Critical | 🔲 Pending | Vertex AI Vector Search for benchmarks |
-| Golden Standard Database | High | 🔲 Pending | Industry averages (kWh/revenue, etc.) |
-| **Variance Check Engine** | High | 🔲 Pending | Flag values >20% from historical average |
-| **Fraud Detection (Round Number Bias)** | High | 🔲 Pending | Detect suspiciously round values |
-| Region-Based Risk Scoring | Medium | 🔲 Pending | Ethical sourcing checks |
+**Target:** 98% accuracy, <3s processing, 85% STP
 
----
-
-## Phase 5: Frontend Polish
-**Status:** Not Started
-**Goal:** Production-ready user experience, SEO, and marketing assets.
-
-| Feature | Priority | Status | Description |
-|---------|----------|--------|-------------|
-| **Mobile Responsiveness** | Critical | ✅ Complete | Dashboard padding, tables, grid audit |
-| **SEO Optimization** | Critical | ✅ Complete | Metadata, Favicons, Brand Assets |
-| **Schema.org Metadata** | High | ✅ Complete | BusinessModel, SoftwareApplication entities |
-| **Performance Optimization** | High | ✅ Complete | Next.js Fonts (Inter/JetBrains) optimization |
-| **Marketing Landing Copy** | High | ✅ Complete | Aligned with Glass Box Brand Essence |
-| **OG Image Generation** | Medium | ✅ Complete | Configured in metadata |
-| **Accessibility Audit** | Medium | ✅ Complete | ARIA, Keyboard Nav, Semantic HTML |
-| **Animation Polish** | Low | ✅ Complete | Interactive hover states, logo transitions |
-| Dark/Light Mode Toggle | Low | 🔲 Pending | Theme switcher (optional) |
+| Feature | Priority | Status | ROI Impact |
+|---------|----------|--------|------------|
+| Agentic AI Mesh | P0 | 🔲 | Multi-agent collaboration |
+| Real-time Processing | P0 | 🔲 | WebSocket streaming |
+| PostgreSQL + Prisma | P1 | 🔲 | Enterprise persistence |
+| RPA Integration | P1 | 🔲 | 400% ROI benchmark |
+| ERP Connectors | P2 | 🔲 | SAP, Oracle, NetSuite |
 
 ---
 
-## Development Principles
+## Phase 10: Enterprise Scale (Future)
 
-1. **No Black Boxes:** Every AI decision must be traceable.
-2. **Human-in-the-Loop:** Critical decisions require human approval.
-3. **Google AI Principles:** Safety, fairness, and social benefit.
-4. **Enterprise-Grade:** Security, scalability, and auditability first.
+| Feature | Priority | Status |
+|---------|----------|--------|
+| Multi-tenant SaaS | P1 | 🔲 |
+| API Authentication (JWT) | P1 | 🔲 |
+| Cloud Deployment (GCP) | P1 | 🔲 |
+| SOC 2 Compliance | P2 | 🔲 |
+| Multi-modal AI (Voice) | P2 | 🔲 |
 
 ---
 
-## Success Metrics
+## Frontend Polish (Parallel)
 
-| Metric | Target |
-|--------|--------|
-| Document Processing Accuracy | > 95% |
-| Average Processing Time | < 10 seconds |
-| Human Intervention Rate | < 15% of documents |
-| Lighthouse Performance Score | > 90 |
-| WCAG Accessibility Level | AA |
+| Feature | Priority | Status |
+|---------|----------|--------|
+| MagicBento Rollout | P2 | 🔲 |
+| Legal Pages (/privacy, /terms) | P2 | 🔲 |
+| Dark/Light Mode | P3 | 🔲 |
+
+---
+
+## Success Targets
+
+| Metric | Current | Phase 8 | Phase 9 |
+|--------|---------|---------|---------|
+| Field Accuracy | 90% | 95% | **98%** |
+| Processing Time | 8s | 5s | **<3s** |
+| STP Rate | 70% | 80% | **85%** |
+| Human Intervention | 25% | 15% | **<10%** |
+
+---
+
+## Guiding Principles
+
+1. **Glass Box** — Every AI decision traceable
+2. **Human-in-the-Loop** — HITL for low-confidence extractions
+3. **Scale by Pattern** — Replicate successful automation flows
+4. **Data Quality First** — Start bounded, expand iteratively
+
+---
+
+> *"Orchestration. Resilience. Compliance."*
