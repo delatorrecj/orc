@@ -15,4 +15,12 @@ requests>=2.31.0
 # Gmail API
 google-auth-oauthlib>=1.0.0
 google-auth-httplib2>=0.2.0
-google-api-python-client>=2.100.0
+
+# Machine Learning (LayoutLMv3)
+torch>=2.0.0
+transformers>=4.30.0
+datasets>=2.10.0
+seqeval>=1.2.2
+scikit-learn>=1.0.0
+tensorboard
+easyocr

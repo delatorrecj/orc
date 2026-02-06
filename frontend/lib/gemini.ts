@@ -29,6 +29,34 @@ function getRotatedModel() {
 // Proxy object to dynamically get a fresh model instance with a rotated key on each method call
 export const model = new Proxy({} as any, {
     get: (_, prop) => {
+        // Intercept generateContent to handle 429 retries
+        if (prop === 'generateContent') {
+            return async (...args: any[]) => {
+                let lastError;
+                // Retry up to 3 times (or number of keys * 2 to be safe)
+                const maxRetries = Math.max(apiKeys.length * 2, 5);
+
+                for (let i = 0; i < maxRetries; i++) {
+                    try {
+                        const instance = getRotatedModel(); // Rotates key globally
+                        return await instance.generateContent(...args);
+                    } catch (err: any) {
+                        const isRateLimit = err.message?.includes('429') || err.message?.includes('Quota') || err.status === 429;
+                        if (isRateLimit) {
+                            console.warn(`[Gemini] Rate Limit hit on Key index ${keyIndex}. Rotating... (Attempt ${i + 1}/${maxRetries})`);
+                            lastError = err;
+                            // Add a small backoff to prevent hammering
+                            await new Promise(r => setTimeout(r, 1000 + (i * 500)));
+                            continue;
+                        }
+                        throw err; // Rethrow non-rate-limit errors
+                    }
+                }
+                console.error("[Gemini] All keys exhausted/rate limited.");
+                throw lastError;
+            };
+        }
+
         const instance = getRotatedModel();
         // @ts-expect-error dynamic proxy
         const value = instance[prop];

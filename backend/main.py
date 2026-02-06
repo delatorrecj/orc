@@ -28,14 +28,28 @@ except FileNotFoundError:
     exit(1)
 
 # --- API SETUP ---
-API_KEY = os.environ.get("GEMINI_API_KEY")
-if not API_KEY:
-    print("WARNING: GEMINI_API_KEY environment variable not set.")
-    print("The agents will run in MOCK MODE unless you set the key.")
-    # For scaffolding purposes, we will continue, but actual calls will fail or need mocking.
+# --- API SETUP ---
+API_KEYS_RAW = os.environ.get("GEMINI_API_KEYS") or os.environ.get("GEMINI_API_KEY") or ""
+API_KEYS = [k.strip() for k in API_KEYS_RAW.split(",") if k.strip()]
 
-if API_KEY:
-    genai.configure(api_key=API_KEY)
+if not API_KEYS:
+    print("WARNING: GEMINI_API_KEYS environment variable not set.")
+    print("The agents will run in MOCK MODE unless you set the key.")
+
+# Global Key Index
+_key_index = 0
+
+def rotate_key():
+    global _key_index
+    if not API_KEYS: return None
+    key = API_KEYS[_key_index]
+    _key_index = (_key_index + 1) % len(API_KEYS)
+    genai.configure(api_key=key)
+    return key
+
+# Initial config
+if API_KEYS:
+    rotate_key()
 
 # --- MODEL INITIALIZATION ---
 MODEL_NAME = PROMPT_ENGINE["system_meta"]["model"]
@@ -46,8 +60,11 @@ GENERATION_CONFIG = {
 }
 
 def get_model():
-    if not API_KEY:
+    if not API_KEYS:
         return None
+    # Rotate key for every new model instance request (or per call if we rebuilt)
+    # For robust rotation, we call rotate_key() here.
+    rotate_key()
     return genai.GenerativeModel(
         model_name=MODEL_NAME,
         generation_config=GENERATION_CONFIG
