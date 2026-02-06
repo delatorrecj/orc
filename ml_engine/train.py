@@ -7,23 +7,25 @@ from transformers import (
     LayoutLMv3Processor,
     TrainingArguments,
     Trainer,
-    EarlyStoppingCallback
+    EarlyStoppingCallback,
+    default_data_collator
 )
-from datasets import load_metric
+import evaluate
+
 from sklearn.model_selection import train_test_split
 from dataset import InvoiceDataset
 
 # Configuration
 MODEL_NAME = "microsoft/layoutlmv3-base"
-OUTPUT_DIR = "./models/layoutlmv3-finetuned"
-GROUND_TRUTH_DIR = "./ground_truth"
+OUTPUT_DIR = "./ml_engine/models/layoutlmv3-finetuned"
+GROUND_TRUTH_DIR = "./ml_engine/ground_truth"
 BATCH_SIZE = 2
 LEARNING_RATE = 5e-5
 NUM_EPOCHS = 10
 MAX_STEPS = 1000  # Cap valid steps (optional)
 
 def compute_metrics(p):
-    metric = load_metric("seqeval")
+    metric = evaluate.load("seqeval")
     predictions, labels = p
     predictions = np.argmax(predictions, axis=2)
 
@@ -88,7 +90,7 @@ def main():
         per_device_train_batch_size=BATCH_SIZE,
         per_device_eval_batch_size=BATCH_SIZE,
         learning_rate=LEARNING_RATE,
-        evaluation_strategy="steps",
+        eval_strategy="steps",
         eval_steps=50,
         save_steps=50,
         logging_steps=10,
@@ -106,14 +108,9 @@ def main():
         args=training_args,
         train_dataset=train_dataset,
         eval_dataset=eval_dataset,
-        tokenizer=processor,
-        data_collator=lambda x: x, # We handled collation? Or need default? 
-        # Actually InvoiceDataset returns individual items. we usually need data_collator.
-        # But for LayoutLMv3, standard default_data_collator might fail on images.
-        # Let's rely on transformers default or implement custom one if it fails.
-        # processor.feature_extractor.pad is usually used.
-        # For now, let's see if default works.
+        data_collator=default_data_collator,
         compute_metrics=compute_metrics,
+        callbacks=[EarlyStoppingCallback(early_stopping_patience=2)]
     )
 
     # 6. Train

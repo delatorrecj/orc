@@ -3,14 +3,14 @@ import os
 import torch
 import numpy as np
 from transformers import LayoutLMv3ForTokenClassification, LayoutLMv3Processor
-from datasets import load_metric
+import evaluate
 from dataset import InvoiceDataset
 from sklearn.metrics import classification_report
 
 MODEL_DIR = "./models/layoutlmv3-finetuned"
 GROUND_TRUTH_DIR = "./ground_truth"
 
-def evaluate():
+def evaluate_model():
     print(f"📊 Loading Model from {MODEL_DIR}...")
     try:
         model = LayoutLMv3ForTokenClassification.from_pretrained(MODEL_DIR)
@@ -65,7 +65,7 @@ def evaluate():
         true_labels.append(filtered_labels)
 
     # Metrics
-    metric = load_metric("seqeval")
+    metric = evaluate.load("seqeval")
     results = metric.compute(predictions=predictions, references=true_labels)
     
     print("\n🏆 Evaluation Results:")
@@ -82,4 +82,4 @@ def evaluate():
             print(f"{key}: F1={results[key]['f1']:.4f}")
 
 if __name__ == "__main__":
-    evaluate()
+    evaluate_model()

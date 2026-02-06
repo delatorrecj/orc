@@ -61,4 +61,5 @@ Desktop.ini
 
 # ---- ML Engine ----
 ml_engine/ground_truth/
+ml_engine/models/
 *.jsonl

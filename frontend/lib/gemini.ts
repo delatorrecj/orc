@@ -31,7 +31,7 @@ export const model = new Proxy({} as any, {
     get: (_, prop) => {
         // Intercept generateContent to handle 429 retries
         if (prop === 'generateContent') {
-            return async (...args: any[]) => {
+            return async (...args: unknown[]) => {
                 let lastError;
                 // Retry up to 3 times (or number of keys * 2 to be safe)
                 const maxRetries = Math.max(apiKeys.length * 2, 5);
@@ -39,9 +39,12 @@ export const model = new Proxy({} as any, {
                 for (let i = 0; i < maxRetries; i++) {
                     try {
                         const instance = getRotatedModel(); // Rotates key globally
-                        return await instance.generateContent(...args);
-                    } catch (err: any) {
-                        const isRateLimit = err.message?.includes('429') || err.message?.includes('Quota') || err.status === 429;
+                        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+                        return await (instance.generateContent as any)(...args);
+                    } catch (err: unknown) {
+                        const error = err as { message?: string; status?: number };
+                        const isRateLimit = error.message?.includes('429') || error.message?.includes('Quota') || error.status === 429;
+
                         if (isRateLimit) {
                             console.warn(`[Gemini] Rate Limit hit on Key index ${keyIndex}. Rotating... (Attempt ${i + 1}/${maxRetries})`);
                             lastError = err;

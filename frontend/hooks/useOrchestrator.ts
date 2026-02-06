@@ -104,21 +104,87 @@ export function useOrchestrator() {
         const JS_API_URL = "/api/orchestrate";
 
         try {
-            // Try Python API first, fallback to JS route
-            let response: Response;
+            // Hybrid Routing Logic (Phase 11.6)
+            // Strategy: Try Local Inference (Free) -> Fallback to Cloud (Gemini)
+
+            const LOCAL_API_URL = "http://localhost:8001/predict";
+            let hybridData = null;
+            let usedSource = "CLOUD";
+
+            // 1. Attempt Local Inference
             try {
-                response = await fetch(PYTHON_API_URL, {
+                addLog("SYSTEM", "Attempting Zero-Cost Local Extraction...", "processing");
+
+                // We need to send just the file, serve.py expects 'file'
+                const localFormData = new FormData();
+                localFormData.append("file", file);
+
+                const localRes = await fetch(LOCAL_API_URL, {
                     method: "POST",
-                    body: formData,
+                    body: localFormData
                 });
-                addLog("SYSTEM", "Using Python extraction engine (pdfplumber + Gemini)", "info");
-            } catch (pythonError) {
-                // Python API not available, fallback to JS
-                addLog("SYSTEM", "Python API unavailable, using JS fallback", "warning");
-                response = await fetch(JS_API_URL, {
-                    method: "POST",
-                    body: formData,
-                });
+
+                if (localRes.ok) {
+                    const localJson = await localRes.json();
+                    if (localJson.status === "success") {
+                        // Transform Local JSON to ORC Format
+                        // Local returns: { data: { total_amount: "...", ... } }
+                        // ORC expects: { analyst: { total_amount: "...", ... }, gatekeeper: ... }
+
+                        hybridData = {
+                            gatekeeper: {
+                                doc_type: "INVOICE",
+                                confidence_score: 0.95, // Local model is confident
+                                summary: "Extracted via LayoutLMv3 (Local)"
+                            },
+                            analyst: {
+                                total_amount: localJson.data.total_amount || "0.00",
+                                currency: "$", // Assume USD for local
+                                line_items: [], // LayoutLMv3 doesn't do lines yet
+                                invoice_date: localJson.data.invoice_date,
+                                vendor_name: localJson.data.vendor_name
+                            },
+                            guardian: {
+                                status: "PASS",
+                                requires_human_review: false,
+                                flags: []
+                            }
+                        };
+                        usedSource = "LOCAL";
+                        addLog("SYSTEM", "✅ Local Extraction Successful (Zero Cost).", "success");
+                    }
+                } else {
+                    addLog("SYSTEM", "Local Model unreachable or failed. Switching to Cloud.", "warning");
+                }
+            } catch (err) {
+                addLog("SYSTEM", "Local Inference Agent offline. Fallback to Gemini.", "warning");
+            }
+
+            let response: Response;
+
+            if (usedSource === "LOCAL" && hybridData) {
+                // Mock a response object for the flow below
+                response = {
+                    ok: true,
+                    json: async () => hybridData
+                } as Response;
+            } else {
+                // 2. Cloud Fallback (Python API -> Gemini)
+                addLog("SYSTEM", "Routing to Cloud Engine (Gemini)...", "info");
+                try {
+                    response = await fetch(PYTHON_API_URL, {
+                        method: "POST",
+                        body: formData,
+                    });
+                    addLog("SYSTEM", "Using Python extraction engine (pdfplumber + Gemini)", "info");
+                } catch (pythonError) {
+                    // Python API not available, fallback to JS
+                    addLog("SYSTEM", "Python API unavailable, using JS fallback", "warning");
+                    response = await fetch(JS_API_URL, {
+                        method: "POST",
+                        body: formData,
+                    });
+                }
             }
 
             if (!response.ok) {

@@ -53,6 +53,20 @@
 
 ---
 
+## Phase 11: Zero-Cost Intelligence (Current Focus 🚀)
+
+**Target:** Drastically reduce inference cost by offloading extraction to local models (LayoutLMv3).
+
+| Feature | Priority | Status | Significance |
+|---------|----------|--------|--------------|
+| **Data Foundry** | P0 | ✅ | Auto-Labeling Pipeline (Kaggle -> JSON) |
+| **Model Training Infra** | P0 | 🏃‍♂️ | `train.py` (LayoutLMv3 + EasyOCR) |
+| **Local Inference API** | P1 | �️ | Serve model via `fastapi` |
+| **Deploy to HF Spaces** | P1 | 🔲 | **Free Hosting** for Model (vs Railway) |
+| **Hybrid Routing** | P1 | 🔲 | Router: Gemini (Complex) vs Local (Simple) |
+
+---
+
 ## Phase 12: Enterprise Integrations & Scale (Backlog 🔲)
 
 | Feature | Priority | Status | Notes |
@@ -62,7 +76,8 @@
 | **ERP Connectors** | P2 | 🔲 | NetSuite, SAP, Oracle |
 | **Legal Pages** | P2 | 🔲 | Privacy Policy, Terms of Service |
 | **Dark/Light Mode** | P3 | 🔲 | UI Polish |
-| **MagicBento Rollout** | P2 | 🔲 | Advanced UI Components |
+| **MagicBento Rollout** | P2 | 🔲 | Advanced UI Components | 
+| **ONNX Quantization** | P1 | 🔲 | Optimization for CPU Inference |
 
 ---
 

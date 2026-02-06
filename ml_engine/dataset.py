@@ -142,76 +142,28 @@ class InvoiceDataset(Dataset):
                         # TODO: Multi-word entities (e.g. "Vendor Name Inc") not handled here yet.
                         # This logic assumes entity is contained in one OCR block.
 
-        # 3. Process (Manual Tokenization & Alignment)
-        encoded_inputs = self.processor.tokenizer(
+        # 3. Process (Auto-Alignment via Processor)
+        word_labels = [self.label2id.get(tag, 0) for tag in ner_tags]
+        
+        encoding = self.processor(
+            image,
             words,
             boxes=boxes,
-            padding=False,
+            word_labels=word_labels,
             truncation=True,
+            padding="max_length",
             max_length=self.max_length,
+            stride=128,
+            return_overflowing_tokens=True,
             return_offsets_mapping=True,
-            is_split_into_words=True
+            return_tensors="pt"
         )
         
-        # Now we match labels.
-        word_ids = encoded_inputs.word_ids()
-        label_ids = []
-        previous_word_idx = None
-        
-        for word_idx in word_ids:
-            if word_idx is None:
-                label_ids.append(-100) # Special token
-            elif word_idx != previous_word_idx:
-                # First token of word
-                lbl = ner_tags[word_idx]
-                label_ids.append(self.label2id.get(lbl, 0)) # B-Tag or O
-            else:
-                # Subsequent token -> needs to be I-Tag if B-Tag
-                lbl = ner_tags[word_idx]
-                if lbl.startswith("B-"):
-                    i_lbl = "I-" + lbl[2:]
-                    label_ids.append(self.label2id.get(i_lbl, 0)) # I-Tag
-                else:
-                    label_ids.append(self.label2id.get(lbl, 0)) # O stays O
-                
-            previous_word_idx = word_idx
-
-        # Convert to tensors and Pad
-        # We reuse processor to pad? No, processor.pad works on dict of lists.
-        # Or just manual torch padding.
-        
-        # Prepare Dict for padding
-        item = {
-            "input_ids": encoded_inputs["input_ids"],
-            "bbox": encoded_inputs["bbox"],
-            "attention_mask": encoded_inputs["attention_mask"],
-            "labels": label_ids,
-            "pixel_values": self.processor.image_processor(image, return_tensors="pt").pixel_values.squeeze()
+        # 4. Extract first window (LayoutLMv3 is usually handled this way for simple training)
+        return {
+            "input_ids": torch.tensor(encoding["input_ids"][0], dtype=torch.long),
+            "attention_mask": torch.tensor(encoding["attention_mask"][0], dtype=torch.long),
+            "bbox": torch.tensor(encoding["bbox"][0], dtype=torch.long),
+            "pixel_values": encoding["pixel_values"][0], # Already tensor
+            "labels": torch.tensor(encoding["labels"][0], dtype=torch.long)
         }
-        
-        # Pad inputs (except pixel_values)
-        padding_length = self.max_length - len(item["input_ids"])
-        if padding_length > 0:
-            item["input_ids"] = item["input_ids"] + [self.processor.tokenizer.pad_token_id] * padding_length
-            item["attention_mask"] = item["attention_mask"] + [0] * padding_length
-            item["bbox"] = item["bbox"] + [[0,0,0,0]] * padding_length
-            item["labels"] = item["labels"] + [-100] * padding_length
-        else:
-            # Truncate (Tokenizer might have done it, but labels/bbox need to match)
-            # Tokenizer truncation handles ids/bbox/mask. We need to truncate labels.
-            max_len = self.max_length
-            item["input_ids"] = item["input_ids"][:max_len]
-            item["attention_mask"] = item["attention_mask"][:max_len]
-            item["bbox"] = item["bbox"][:max_len]
-            item["labels"] = item["labels"][:max_len]
-
-        # Convert to Tensors
-        final_encoding = {
-            "input_ids": torch.tensor(item["input_ids"], dtype=torch.long),
-            "bbox": torch.tensor(item["bbox"], dtype=torch.long),
-            "attention_mask": torch.tensor(item["attention_mask"], dtype=torch.long),
-            "labels": torch.tensor(item["labels"], dtype=torch.long),
-            "pixel_values": item["pixel_values"]
-        }
-            
-        return final_encoding
