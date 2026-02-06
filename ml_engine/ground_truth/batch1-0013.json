@@ -1,0 +1,48 @@
+{
+  "vendor_name": "Schmidt LLC",
+  "vendor_address": "5107 Christina Orchard Apt. 670\nWest Conniemouth, MD 43698",
+  "invoice_number": "57986024",
+  "invoice_date": "2015-10-17",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 215.72,
+  "tax_amount": 21.57,
+  "total_amount": 237.29,
+  "line_items": [
+    {
+      "description": "Straw Dogs : Thoughts on Humans and Other Animals, Paperback by Gray, John, L...",
+      "quantity": 5,
+      "unit_price": 13.99,
+      "total": 69.95
+    },
+    {
+      "description": "Quilts of Illusion",
+      "quantity": 5,
+      "unit_price": 5.79,
+      "total": 28.95
+    },
+    {
+      "description": "Selected poetry of W H Auden",
+      "quantity": 1,
+      "unit_price": 4.89,
+      "total": 4.89
+    },
+    {
+      "description": "In the Footsteps of the Russian Snowman (Paperback or Softback)",
+      "quantity": 4,
+      "unit_price": 25.87,
+      "total": 103.48
+    },
+    {
+      "description": "Steam Yacht Varuna, Brand New, Free shipping in the US",
+      "quantity": 1,
+      "unit_price": 8.45,
+      "total": 8.45
+    }
+  ],
+  "confidence": 0.98,
+  "notes": "The invoice uses a comma as a decimal separator for monetary values, which has been converted to a period. The currency symbol is '$', indicating USD.",
+  "_source_file": "batch1-0013.jpg",
+  "_extracted_at": "2026-02-06T17:41:41.601275"
+}

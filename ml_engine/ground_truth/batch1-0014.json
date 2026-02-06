@@ -1,0 +1,24 @@
+{
+  "vendor_name": "Tran, Hurst and Rodgers",
+  "vendor_address": "Unit 2493 Box 1389\nDPO AP 75814",
+  "invoice_number": "77596491",
+  "invoice_date": "2021-01-31",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 22.68,
+  "tax_amount": 2.27,
+  "total_amount": 24.95,
+  "line_items": [
+    {
+      "description": "Earl Scruggs and the 5-String Banjo: Revised and Enhanced Edition (Paperback or",
+      "quantity": 1,
+      "unit_price": 22.68,
+      "total": 22.68
+    }
+  ],
+  "confidence": 0.98,
+  "notes": "Client information (Stephenson Inc, 716 Wright Flat Apt. 385, South Carrie, GA 17790, Tax Id: 926-85-5660) is present but not included in the requested JSON structure. The line item description appears to be truncated in the original image.",
+  "_source_file": "batch1-0014.jpg",
+  "_extracted_at": "2026-02-06T17:41:51.117381"
+}

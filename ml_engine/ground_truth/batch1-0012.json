@@ -1,0 +1,42 @@
+{
+  "vendor_name": "Nicholson, Miller and Webster",
+  "vendor_address": "USS Lee\nFPO AE 74393",
+  "invoice_number": "13407985",
+  "invoice_date": "2013-11-22",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 4963.41,
+  "tax_amount": 496.34,
+  "total_amount": 5459.75,
+  "line_items": [
+    {
+      "description": "Adult Kids Pokemon Pikachu Kigurumi Pajama Cosplay Christmas Costume Sleepwear",
+      "quantity": 5,
+      "unit_price": 9.95,
+      "total": 49.75
+    },
+    {
+      "description": "Vintage 90s Sostanza Plus Size Dress 22W Floral Cottagecore",
+      "quantity": 3,
+      "unit_price": 49.96,
+      "total": 149.88
+    },
+    {
+      "description": "balmain dress 36",
+      "quantity": 3,
+      "unit_price": 1550.0,
+      "total": 4650.0
+    },
+    {
+      "description": "Lilly Pulitzer 8 Sunkissed with Glow Janice Shift Dress",
+      "quantity": 2,
+      "unit_price": 56.89,
+      "total": 113.78
+    }
+  ],
+  "confidence": 0.98,
+  "notes": "Client information (Mccormick and Sons, 22688 Ortiz Plaza, Meganfort, WA 91964) is also visible but not included in the requested structure.",
+  "_source_file": "batch1-0012.jpg",
+  "_extracted_at": "2026-02-06T17:41:29.021675"
+}

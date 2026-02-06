@@ -1,0 +1,48 @@
+{
+  "vendor_name": "Dominguez, Jackson and Steele",
+  "vendor_address": "98309 Stephanie Stream\nMichaelbury, RI 57219",
+  "invoice_number": "98858130",
+  "invoice_date": "2021-01-28",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 401.88,
+  "tax_amount": 40.19,
+  "total_amount": 442.07,
+  "line_items": [
+    {
+      "description": "Wine Glasses Set Of 4",
+      "quantity": 2,
+      "unit_price": 6.0,
+      "total": 12.0
+    },
+    {
+      "description": "Uncork New York rolling vineyards Wine glass set of 2",
+      "quantity": 5,
+      "unit_price": 5.99,
+      "total": 29.95
+    },
+    {
+      "description": "Anthropologie Gold Elegant Swan Decorative Metal Bottle Stopper Wine Saver",
+      "quantity": 1,
+      "unit_price": 19.98,
+      "total": 19.98
+    },
+    {
+      "description": "Moonshine Still 8Gal/30L Water Alcohol Distiller Home Brew Wine Making Kit 3 Pot",
+      "quantity": 3,
+      "unit_price": 89.99,
+      "total": 269.97
+    },
+    {
+      "description": "4 Tupperware Wine Stemless Cups Set Acrylic Plastic Shatter Proof Beverages New",
+      "quantity": 2,
+      "unit_price": 34.99,
+      "total": 69.98
+    }
+  ],
+  "confidence": 0.98,
+  "notes": "The invoice uses a comma as a decimal separator for quantities and monetary values, which has been converted to a dot for JSON numerical values. Client information is present but not requested in the output structure.",
+  "_source_file": "batch1-0017.jpg",
+  "_extracted_at": "2026-02-06T17:42:32.817897"
+}

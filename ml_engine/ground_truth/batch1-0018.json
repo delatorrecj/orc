@@ -1,0 +1,54 @@
+{
+  "vendor_name": "Lopez, Murray and Johnston",
+  "vendor_address": "62820 White Glen\nEmilyshire, IN 44602",
+  "invoice_number": "36187296",
+  "invoice_date": "2017-01-05",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 471.64,
+  "tax_amount": 47.16,
+  "total_amount": 518.8,
+  "line_items": [
+    {
+      "description": "Nike Kids KD Trey 5 / Nike Black Size 4.5aY",
+      "quantity": 5,
+      "unit_price": 22.0,
+      "total": 110.0
+    },
+    {
+      "description": "Lego Star Wars Minifigures Stormtrooper Darth Vader Yoda Obi Van Mandalorian New",
+      "quantity": 1,
+      "unit_price": 2.98,
+      "total": 2.98
+    },
+    {
+      "description": "Nike Air Jordan 1 Mid Obsidian 640735-174 Toddler Kids Children Size 8C Blue",
+      "quantity": 5,
+      "unit_price": 24.99,
+      "total": 124.95
+    },
+    {
+      "description": "Oomphies Boys Ankle Boots Shoes Gray Green Kids Size 2 EUC",
+      "quantity": 4,
+      "unit_price": 11.99,
+      "total": 47.96
+    },
+    {
+      "description": "Jordan 10 Retro Fusion Red Size 6Y",
+      "quantity": 3,
+      "unit_price": 60.0,
+      "total": 180.0
+    },
+    {
+      "description": "Jordan Hydro 2 (TD)-Child Size 10c",
+      "quantity": 1,
+      "unit_price": 5.75,
+      "total": 5.75
+    }
+  ],
+  "confidence": 0.98,
+  "notes": "The invoice uses a comma as a decimal separator and a period as a thousands separator for monetary values, which has been converted to standard decimal format. The date '01/05/2017' is interpreted as DD/MM/YYYY (January 5th, 2017) based on common usage with this number formatting. Client information is visible but not included in the requested structure.",
+  "_source_file": "batch1-0018.jpg",
+  "_extracted_at": "2026-02-06T17:42:50.306103"
+}

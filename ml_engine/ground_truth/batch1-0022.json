@@ -1,0 +1,48 @@
+{
+  "vendor_name": "Holmes-Whitney",
+  "vendor_address": "PSC 4815, Box 7683\nAPO AE 56344",
+  "invoice_number": "37877758",
+  "invoice_date": "2014-02-07",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 43018.47,
+  "tax_amount": 4301.85,
+  "total_amount": 47320.32,
+  "line_items": [
+    {
+      "description": "12\"x18\" White Marble Coffee Top Table Lapis Inlay Pietradura Floral Art Decor",
+      "quantity": 4,
+      "unit_price": 396.55,
+      "total": 1586.2
+    },
+    {
+      "description": "24\"x24\" Top Marble White Table Carnelian Marquetry Interior Thanksgiving Gift",
+      "quantity": 5,
+      "unit_price": 2000.0,
+      "total": 10000.0
+    },
+    {
+      "description": "24\"x24\" Marble Black Top Coffee Table Inlaid Floral Art Christmas Gift Home Deco",
+      "quantity": 3,
+      "unit_price": 1150.0,
+      "total": 3450.0
+    },
+    {
+      "description": "48 Inches Marble Coffee Table Top Inlay with Yellow Stone Art Dinette Table Top",
+      "quantity": 1,
+      "unit_price": 3400.0,
+      "total": 3400.0
+    },
+    {
+      "description": "7'x4' Blue Random Marble Dining Hallway Table Top Lapis Lazuli Inlay Decor E947A",
+      "quantity": 3,
+      "unit_price": 8194.09,
+      "total": 24582.27
+    }
+  ],
+  "confidence": 0.98,
+  "notes": "The invoice uses comma as a decimal separator and space as a thousands separator for monetary values. The date format '07/02/2014' is interpreted as DD/MM/YYYY.",
+  "_source_file": "batch1-0022.jpg",
+  "_extracted_at": "2026-02-06T17:44:40.497618"
+}

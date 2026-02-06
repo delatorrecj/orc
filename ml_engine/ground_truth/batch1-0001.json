@@ -1,0 +1,60 @@
+{
+  "vendor_name": "Andrews, Kirby and Valdez",
+  "vendor_address": "58861 Gonzalez Prairie\nLake Daniellefurt, IN 57228",
+  "invoice_number": "51109338",
+  "invoice_date": "2013-04-13",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 5640.17,
+  "tax_amount": 564.02,
+  "total_amount": 6204.19,
+  "line_items": [
+    {
+      "description": "CLEARANCE! Fast Dell Desktop Computer PC DUAL CORE WINDOWS 10 4/8/16GB RAM",
+      "quantity": 3,
+      "unit_price": 209.0,
+      "total": 689.7
+    },
+    {
+      "description": "HP T520 Thin Client Computer AMD GX-212JC 1.2GHz 4GB RAM TESTED !!READ BELOW!!",
+      "quantity": 5,
+      "unit_price": 37.75,
+      "total": 207.63
+    },
+    {
+      "description": "gaming pc desktop computer",
+      "quantity": 1,
+      "unit_price": 400.0,
+      "total": 440.0
+    },
+    {
+      "description": "12-Core Gaming Computer Desktop PC Tower Affordable GAMING PC 8GB AMD Vega RGB",
+      "quantity": 3,
+      "unit_price": 464.89,
+      "total": 1534.14
+    },
+    {
+      "description": "Custom Build Dell Optiplex 9020 MT i5-4570 3.20GHz Desktop Computer PC",
+      "quantity": 5,
+      "unit_price": 221.99,
+      "total": 1220.95
+    },
+    {
+      "description": "Dell Optiplex 990 MT Computer PC Quad Core i7 3.4GHz 16GB 2TB HD Windows 10 Pro",
+      "quantity": 4,
+      "unit_price": 269.95,
+      "total": 1187.78
+    },
+    {
+      "description": "Dell Core 2 Duo Desktop Computer | Windows XP Pro | 4GB | 500GB",
+      "quantity": 5,
+      "unit_price": 168.0,
+      "total": 924.0
+    }
+  ],
+  "confidence": 0.98,
+  "notes": "Client information (Becker Ltd, 8012 Stewart Summit Apt. 455, North Douglas, AZ 95355, Tax Id: 942-80-0517) is visible but not included in the requested output structure. The 'Net price' column was used for 'unit_price' and 'Gross worth' for 'total' in line items.",
+  "_source_file": "batch1-0001.jpg",
+  "_extracted_at": "2026-02-06T17:35:04.181931"
+}

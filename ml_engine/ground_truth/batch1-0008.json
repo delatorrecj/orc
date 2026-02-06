@@ -1,0 +1,42 @@
+{
+  "vendor_name": "Hall-Boyd",
+  "vendor_address": "8719 Reed Street Apt. 120\nEast Michelleborough, KY 93895",
+  "invoice_number": "74589240",
+  "invoice_date": "2013-12-08",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 11794.44,
+  "tax_amount": 1179.44,
+  "total_amount": 12973.88,
+  "line_items": [
+    {
+      "description": "3D Printed Mat Vortex Illusion Living room Rug Carpet Floors Doors Round Mat",
+      "quantity": 3,
+      "unit_price": 11.63,
+      "total": 34.89
+    },
+    {
+      "description": "New Golden Brown Oriental Rug 4X6 Oushak Chobi Floral Hand-Knotted Foyer Carpet",
+      "quantity": 5,
+      "unit_price": 232.65,
+      "total": 1163.25
+    },
+    {
+      "description": "YILONG 5.5'x8' Handknotted Silk Area Rugs Home Decor Classic Blue Carpet 0790",
+      "quantity": 1,
+      "unit_price": 10560.0,
+      "total": 10560.0
+    },
+    {
+      "description": "Pretty Woman Small Large Long Floor Carpet Area Rugs Various Size Soft Rug",
+      "quantity": 1,
+      "unit_price": 36.3,
+      "total": 36.3
+    }
+  ],
+  "confidence": 0.95,
+  "notes": "The invoice uses commas as decimal separators and spaces as thousands separators, which have been converted to standard dot decimals for numerical fields. The date format '12/08/2013' is interpreted as MM/DD/YYYY based on the vendor's US address.",
+  "_source_file": "batch1-0008.jpg",
+  "_extracted_at": "2026-02-06T17:40:45.855622"
+}

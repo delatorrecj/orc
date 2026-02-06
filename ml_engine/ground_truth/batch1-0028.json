@@ -1,0 +1,48 @@
+{
+  "vendor_name": "George, Casey and Harris",
+  "vendor_address": "0943 Justin Branch Apt. 233\nIngramberg, DE 59102",
+  "invoice_number": "32830026",
+  "invoice_date": "2014-12-20",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 1036.58,
+  "tax_amount": 103.66,
+  "total_amount": 1140.24,
+  "line_items": [
+    {
+      "description": "SONY Playstation2 Console SCPH-50000 \"Peal Color\" / TESTED 11176",
+      "quantity": 5,
+      "unit_price": 45.0,
+      "total": 225.0
+    },
+    {
+      "description": "Nintendo Switch Lite Gray CONSOLE ONLY - No Accessories or Charger [B5-2]",
+      "quantity": 1,
+      "unit_price": 135.0,
+      "total": 135.0
+    },
+    {
+      "description": "Nintendo Wii Console RVL-001 Complete Hookups W/ Mario&Sonic; Tested / Working",
+      "quantity": 3,
+      "unit_price": 78.88,
+      "total": 236.64
+    },
+    {
+      "description": "B351 Nintendo new 3DS console White Japan w/stylus pen",
+      "quantity": 4,
+      "unit_price": 79.99,
+      "total": 319.96
+    },
+    {
+      "description": "Sega Saturn Console Gray HST-3200 HST-3210 Japanese",
+      "quantity": 1,
+      "unit_price": 119.98,
+      "total": 119.98
+    }
+  ],
+  "confidence": 0.98,
+  "notes": "Monetary values use a comma as a decimal separator and a space as a thousands separator in the original invoice, but the currency symbol is '$'. Values have been converted to standard decimal format.",
+  "_source_file": "batch1-0028.jpg",
+  "_extracted_at": "2026-02-06T17:48:08.116100"
+}

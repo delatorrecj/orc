@@ -1,0 +1,48 @@
+{
+  "vendor_name": "Austin and Sons",
+  "vendor_address": "9090 Thomas Route Apt. 293\nJohnsonburgh, IA 81799",
+  "invoice_number": "44456646",
+  "invoice_date": "2015-03-21",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 287.36,
+  "tax_amount": 28.74,
+  "total_amount": 316.1,
+  "line_items": [
+    {
+      "description": "crewcuts shoes",
+      "quantity": 4,
+      "unit_price": 12.0,
+      "total": 48.0
+    },
+    {
+      "description": "nickelodeon TMNT Teenage Mutant Ninja Turtles D L M R 6in Action Figure Kids Toy",
+      "quantity": 2,
+      "unit_price": 42.98,
+      "total": 85.96
+    },
+    {
+      "description": "Lands' End Kids Boys Snow Winter Boots Size 5 Blue Warm Zip Up Easy On Easy Off",
+      "quantity": 3,
+      "unit_price": 9.5,
+      "total": 28.5
+    },
+    {
+      "description": "Under Armour KIDS' LOCKDOWN 4 BASKETBALL Black/Red/White Youth Sneakers: Sz 12k",
+      "quantity": 5,
+      "unit_price": 19.99,
+      "total": 99.95
+    },
+    {
+      "description": "SEVENTEEN Semicolon Special Album [Photocard / Digi Pack Cover / Mini Card]",
+      "quantity": 5,
+      "unit_price": 4.99,
+      "total": 24.95
+    }
+  ],
+  "confidence": 1.0,
+  "notes": null,
+  "_source_file": "batch1-0016.jpg",
+  "_extracted_at": "2026-02-06T17:42:22.148407"
+}

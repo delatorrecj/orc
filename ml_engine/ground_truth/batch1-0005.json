@@ -1,0 +1,48 @@
+{
+  "vendor_name": "Johnson-Martin",
+  "vendor_address": "3836 Moore Ports\nNorth Michael, MO 01844",
+  "invoice_number": "89969473",
+  "invoice_date": "2016-10-29",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 725.37,
+  "tax_amount": 72.54,
+  "total_amount": 797.91,
+  "line_items": [
+    {
+      "description": "Wild West Wine",
+      "quantity": 2,
+      "unit_price": 27.0,
+      "total": 54.0
+    },
+    {
+      "description": "Press Wine 15L Fruit Cider Apple Crusher Juice Grape Stainless Maker Grapes New",
+      "quantity": 2,
+      "unit_price": 279.0,
+      "total": 558.0
+    },
+    {
+      "description": "Wine Rack Holder Iron Art Hanging Racks Glass Cup Stemware Shelf Mounted 2 Color",
+      "quantity": 3,
+      "unit_price": 18.75,
+      "total": 56.25
+    },
+    {
+      "description": "Rust Proof Three Rows Tool Wine Glass Holder Simple Iron Wire Home Hanging Rack",
+      "quantity": 2,
+      "unit_price": 11.56,
+      "total": 23.12
+    },
+    {
+      "description": "VTG 1970s MCM Brown Steel Tube Wall or Desk Mounted 12-Wine Rack Bottle Holder",
+      "quantity": 1,
+      "unit_price": 34.0,
+      "total": 34.0
+    }
+  ],
+  "confidence": 0.98,
+  "notes": "Monetary values and quantities use a comma as a decimal separator in the original invoice, converted to a dot for JSON output. The 'Net worth' column in the line items table is used for the 'total' field, representing the pre-tax total for each item.",
+  "_source_file": "batch1-0005.jpg",
+  "_extracted_at": "2026-02-06T17:40:08.584435"
+}

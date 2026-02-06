@@ -1,0 +1,36 @@
+{
+  "vendor_name": "Palmer Ltd",
+  "vendor_address": "9790 Bauer Hills Apt. 146\nSouth Patriciaton, SD 32497",
+  "invoice_number": "19471831",
+  "invoice_date": "2014-09-04",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 40677.81,
+  "tax_amount": 4067.78,
+  "total_amount": 44745.59,
+  "line_items": [
+    {
+      "description": "15\"x15\" White Decorative Coffee Table Top Lapis Lazuli Marquetry Patio D\u00e9cor",
+      "quantity": 3,
+      "unit_price": 645.77,
+      "total": 1937.31
+    },
+    {
+      "description": "4'x2' Marble Dining Table Top Pietra Dura Birds Inlay Art Furniture Decors B444",
+      "quantity": 5,
+      "unit_price": 1840.1,
+      "total": 9200.5
+    },
+    {
+      "description": "60 Inches Marble Dinning Table Top Hand Inlaid Garden Table with Gemstones",
+      "quantity": 5,
+      "unit_price": 5908.0,
+      "total": 29540.0
+    }
+  ],
+  "confidence": 0.98,
+  "notes": "Client information (Rios, Oneill and Rowe) and their address (3571 Tina Trafficway, Buckleyland, LA 97688) are visible but not requested in the output structure. Tax IDs for both seller and client are present. IBAN for seller is present. The date format 04/09/2014 was interpreted as DD/MM/YYYY based on the European-style decimal separator (comma) used in monetary values.",
+  "_source_file": "batch1-0003.jpg",
+  "_extracted_at": "2026-02-06T17:35:28.025592"
+}

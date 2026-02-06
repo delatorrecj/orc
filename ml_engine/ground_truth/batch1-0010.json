@@ -1,0 +1,30 @@
+{
+  "vendor_name": "Michael, Farrell and Lee",
+  "vendor_address": "95360 Washington Inlet\nPort Sandraview, CT 01507",
+  "invoice_number": "99314100",
+  "invoice_date": "2014-06-25",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 5975.75,
+  "tax_amount": 597.58,
+  "total_amount": 6573.33,
+  "line_items": [
+    {
+      "description": "Real Madrid Inflatable Chair (SG16136)",
+      "quantity": 5,
+      "unit_price": 43.95,
+      "total": 219.75
+    },
+    {
+      "description": "60 Inches Marble Dinning Table Top Inlay Work Lawn Table with Multi Color Stones",
+      "quantity": 1,
+      "unit_price": 5756.0,
+      "total": 5756.0
+    }
+  ],
+  "confidence": 0.98,
+  "notes": "Client information (Collins, Barrett and Schroeder) is also visible but not requested in the output structure. The invoice uses a comma as a decimal separator, which has been converted to a dot for numerical fields.",
+  "_source_file": "batch1-0010.jpg",
+  "_extracted_at": "2026-02-06T17:41:05.297717"
+}

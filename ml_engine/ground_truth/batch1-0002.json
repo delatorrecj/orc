@@ -1,0 +1,48 @@
+{
+  "vendor_name": "Fitzpatrick and Sons",
+  "vendor_address": "00480 Cook Cove\nSpencerport, UT 12036",
+  "invoice_number": "12847181",
+  "invoice_date": "2012-03-03",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 6236.77,
+  "tax_amount": 623.68,
+  "total_amount": 6860.45,
+  "line_items": [
+    {
+      "description": "HP Desktop Computer PC Core i5 16GB 2TB HD 256GB SSD 22\" LCD Windows 10",
+      "quantity": 4,
+      "unit_price": 139.95,
+      "total": 559.8
+    },
+    {
+      "description": "CUSTOM BUILT AMD RYZEN THREADRIPPER GAMING COMPUTER , 32 GB RAM,",
+      "quantity": 3,
+      "unit_price": 1400.0,
+      "total": 4200.0
+    },
+    {
+      "description": "Fast Dell Optiplex Desktop PC Computer Dual Core 3.4Ghz 8GB 1TB Win 10 Pro WIFI",
+      "quantity": 1,
+      "unit_price": 217.0,
+      "total": 217.0
+    },
+    {
+      "description": "Dell Optiplex 790 Computer i7 @ 3.40 Ghz Quad Core 250GB 4GB Working",
+      "quantity": 3,
+      "unit_price": 159.99,
+      "total": 479.97
+    },
+    {
+      "description": "Vintage Microsolutions Pentium 133mhz Desktop Tower PC Windows 95 5.25 Floppy",
+      "quantity": 2,
+      "unit_price": 390.0,
+      "total": 780.0
+    }
+  ],
+  "confidence": 0.98,
+  "notes": "Client information: Duncan PLC, Unit 8799 Box 0703, DPO AP 81970. Client Tax Id: 911-82-7132. Seller Tax Id: 998-99-5253. IBAN: GB92PBPQ73499358975916. All line items have a 10% VAT rate.",
+  "_source_file": "batch1-0002.jpg",
+  "_extracted_at": "2026-02-06T17:35:14.970431"
+}

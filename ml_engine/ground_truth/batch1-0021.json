@@ -1,0 +1,48 @@
+{
+  "vendor_name": "Bennett, Chavez and Vazquez",
+  "vendor_address": "Unit 8361 Box 7078\nDPO AE 69202",
+  "invoice_number": "96430839",
+  "invoice_date": "2019-01-13",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 4507.42,
+  "tax_amount": 450.74,
+  "total_amount": 4958.16,
+  "line_items": [
+    {
+      "description": "Dell Optiplex 990 MT Computer PC Quad Core i7 3.4GHz 16GB 2TB HD Windows 10 Pro",
+      "quantity": 4,
+      "unit_price": 269.95,
+      "total": 1079.8
+    },
+    {
+      "description": "Open Box: Dell XPS 8930 Desktop Computer Intel Core i7 8GB RAM 1TB HDD Black - 8",
+      "quantity": 1,
+      "unit_price": 718.11,
+      "total": 718.11
+    },
+    {
+      "description": "Dell 9020 i5-4570 | 16GB | 2TB | SSD Windows 10 Pro Desktop Computer PC WiFi DVD",
+      "quantity": 5,
+      "unit_price": 349.95,
+      "total": 1749.75
+    },
+    {
+      "description": "Dell Optiplex 7040 SFF PC Computer Intel Core i5-6500 3.2GHz 4GB RAM 500GB HDD",
+      "quantity": 4,
+      "unit_price": 99.99,
+      "total": 399.96
+    },
+    {
+      "description": "HP Desktop Computer PC Core i5 16GB 2TB HD 256GB SSD 22\" LCD Windows 10",
+      "quantity": 4,
+      "unit_price": 139.95,
+      "total": 559.8
+    }
+  ],
+  "confidence": 0.98,
+  "notes": "The invoice uses comma as a decimal separator and space as a thousands separator for monetary values, which have been converted to dot decimal separator for JSON output. The 'DPO' in the vendor address is likely a military post office designation, not a Purchase Order number. The squares in item 5 description were treated as OCR artifacts and removed.",
+  "_source_file": "batch1-0021.jpg",
+  "_extracted_at": "2026-02-06T17:44:28.437666"
+}

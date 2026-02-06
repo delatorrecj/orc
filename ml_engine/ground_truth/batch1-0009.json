@@ -1,0 +1,30 @@
+{
+  "vendor_name": "Padilla-Miller",
+  "vendor_address": "53017 Lopez Locks\nAlecborough, OH 49620",
+  "invoice_number": "81978187",
+  "invoice_date": "2013-01-17",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 113.45,
+  "tax_amount": 11.34,
+  "total_amount": 124.79,
+  "line_items": [
+    {
+      "description": "Wine Bottle Holder",
+      "quantity": 5,
+      "unit_price": 10.75,
+      "total": 53.75
+    },
+    {
+      "description": "Cuisinart Stainless Steel Electric Wine Opener - CWO-25 - Brand New in the Box",
+      "quantity": 3,
+      "unit_price": 19.9,
+      "total": 59.7
+    }
+  ],
+  "confidence": 0.98,
+  "notes": "The invoice uses 'Net worth' for line item totals and subtotal, and 'Gross worth' for the final total. The currency symbol is '$', implying USD.",
+  "_source_file": "batch1-0009.jpg",
+  "_extracted_at": "2026-02-06T17:40:55.460870"
+}

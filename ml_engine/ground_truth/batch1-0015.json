@@ -1,0 +1,54 @@
+{
+  "vendor_name": "Porter-Perkins",
+  "vendor_address": "88652 James Loaf\nEast Alyssamouth, KS 81684",
+  "invoice_number": "46506594",
+  "invoice_date": "2012-03-12",
+  "due_date": null,
+  "po_number": null,
+  "currency": "USD",
+  "subtotal": 1335.86,
+  "tax_amount": 133.59,
+  "total_amount": 1469.45,
+  "line_items": [
+    {
+      "description": "Nintendo 3DS Handheld Console Purple",
+      "quantity": 5,
+      "unit_price": 98.99,
+      "total": 494.95
+    },
+    {
+      "description": "PocketGo Bittboy v2 White Retro Video Game Portable Console - 3.5 IPS display",
+      "quantity": 4,
+      "unit_price": 39.0,
+      "total": 156.0
+    },
+    {
+      "description": "Sony PlayStation 3 Slim 120GB Black Console",
+      "quantity": 4,
+      "unit_price": 99.99,
+      "total": 399.96
+    },
+    {
+      "description": "Microsoft Xbox 360 - White - Console, Power Supply, AV Cables *Tested, Working*",
+      "quantity": 1,
+      "unit_price": 39.95,
+      "total": 39.95
+    },
+    {
+      "description": "SONY Playstation2 Console SCPH-39000 \"Aqua Color\" / TESTED 11181",
+      "quantity": 1,
+      "unit_price": 45.0,
+      "total": 45.0
+    },
+    {
+      "description": "Nintendo 64 Console \"Perfect\" + Lot Games \"6 Games\"",
+      "quantity": 1,
+      "unit_price": 200.0,
+      "total": 200.0
+    }
+  ],
+  "confidence": 0.98,
+  "notes": "Decimal separator is a comma in the invoice, converted to a period for monetary values. Currency inferred as USD based on vendor/client addresses, as no explicit currency symbol is present. Date format assumed MM/DD/YYYY.",
+  "_source_file": "batch1-0015.jpg",
+  "_extracted_at": "2026-02-06T17:42:05.657084"
+}
