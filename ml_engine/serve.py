@@ -45,13 +45,18 @@ def load_artifacts():
     reader = easyocr.Reader(['en'], verbose=False)
     
     print(f"📂 Loading Model...")
-    # Check if fine-tuned model exists
-    model_path = FINE_TUNED_MODEL_DIR if os.path.exists(FINE_TUNED_MODEL_DIR) else BASE_MODEL_NAME
+    # Priority: Env Var (Cloud) > Local Dir (Dev) > Base (Fallback)
+    env_model = os.getenv("HF_MODEL_ID")
     
-    if model_path == BASE_MODEL_NAME:
-        print(f"⚠️ Fine-tuned model not found at {FINE_TUNED_MODEL_DIR}. Using BASE model {BASE_MODEL_NAME} for testing.")
+    if env_model:
+        print(f"☁️ configuration: Loading from Hugging Face Hub: {env_model}")
+        model_path = env_model
+    elif os.path.exists(FINE_TUNED_MODEL_DIR):
+        print(f"💻 Configuration: Loading from Local Directory: {FINE_TUNED_MODEL_DIR}")
+        model_path = FINE_TUNED_MODEL_DIR
     else:
-        print(f"✅ Found Fine-Tuned Model at {model_path}")
+        print(f"⚠️ Warning: No fine-tuned model found. Using BASE model {BASE_MODEL_NAME} for testing.")
+        model_path = BASE_MODEL_NAME
 
     try:
         processor = LayoutLMv3Processor.from_pretrained(model_path, apply_ocr=False)
