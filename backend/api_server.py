@@ -28,14 +28,27 @@ from header_mapper import HeaderMapper
 from fraud_detector import FraudDetector
 
 # Gemini setup
+# Gemini setup
 try:
     import google.generativeai as genai
-    API_KEY = os.environ.get("GEMINI_API_KEY")
-    if API_KEY:
-        genai.configure(api_key=API_KEY)
+    from dotenv import load_dotenv
+    import itertools
+    
+    # Load environment variables
+    load_dotenv(Path(__file__).parent.parent / ".env")
+    
+    # Parse keys
+    keys_str = os.environ.get("GEMINI_API_KEYS") or os.environ.get("GEMINI_API_KEY")
+    API_KEYS = [k.strip() for k in keys_str.split(",")] if keys_str else []
+    
+    # Create valid key cycle
+    KEY_CYCLE = itertools.cycle(API_KEYS) if API_KEYS else None
+    
+    print(f"Loaded {len(API_KEYS)} Gemini API keys.")
+    
 except ImportError:
     genai = None
-    API_KEY = None
+    KEY_CYCLE = None
 
 
 # --- PYDANTIC MODELS ---
@@ -132,9 +145,14 @@ app.add_middleware(
 # --- AGENT FUNCTIONS ---
 
 def get_model():
-    """Get Gemini model instance."""
-    if not API_KEY or not genai:
+    """Get Gemini model instance with key rotation."""
+    if not KEY_CYCLE or not genai:
         return None
+    
+    # Rotate key
+    current_key = next(KEY_CYCLE)
+    genai.configure(api_key=current_key)
+    
     return genai.GenerativeModel(
         model_name="gemini-2.5-flash",
         generation_config={
@@ -439,7 +457,7 @@ def root():
 def health():
     return {
         "status": "healthy",
-        "gemini_configured": API_KEY is not None,
+        "gemini_configured": KEY_CYCLE is not None,
         "timestamp": datetime.now().isoformat()
     }
 
@@ -560,5 +578,5 @@ async def extract_document(file: UploadFile = File(...)):
 if __name__ == "__main__":
     import uvicorn
     print("Starting ORC Extraction API...")
-    print(f"Gemini API Key: {'Configured' if API_KEY else 'NOT SET'}")
+    print(f"Gemini API Keys: {'Configured' if KEY_CYCLE else 'NOT SET'}")
     uvicorn.run(app, host="0.0.0.0", port=8000)

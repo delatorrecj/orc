@@ -304,9 +304,16 @@
 - **Status:** Verified `batch_1` contains images.
 - **Issue:** `invoices.csv` does not match the images (Synthetic vs Scanned).
 - **Resolution:** Defined "Auto-Labeling" strategy where Gemini labels the images to create Ground Truth.
+
+### Phase 9.5: System Polish (Post-Session)
+- **PDF Fix:** Downgraded `react-pdf` to v9.1.0 + Added `Promise.withResolvers` polyfill to fix Next.js 16 crash.
+- **Rate Limits:** Implemented **Multi-Key Rotation** (3 Keys) for both Backend (`api_server.py`) and Frontend (`web/lib/gemini.ts`).
+- **Resilience:** System now auto-rotates keys on every request to bypass `429 Too Many Requests` errors.
 ### Phase 9.5: Restructure (Polish)
 - **Docs:** Consolidated `context/` into `docs/`.
-- **Backend:** Renaming `scripts` -> `backend` paused (Server running).
+- **Backend:** `scripts/` content moved to `backend/`. (Old folder locked, can be deleted later).
+- **Frontend:** Fixed Next.js 16 Turbopack error (`npm run dev --webpack`).
+- **Data:** Verified `invoices.csv` mismatch (ML pivot required).
 - **ML:** Created `ml_engine/` for Phase 11 pipelines.
 - **Handoff:** Updated `docs/SESSION_RESUME.md`.
 

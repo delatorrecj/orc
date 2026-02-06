@@ -6,6 +6,8 @@
 
 ## 🛑 System State
 - **Architecture:** Agentic Loop (Analyst → Guardian → Retry).
+- **Security:** Multi-Key Rotation (3 Gemini Keys) implemented on both Backend and Frontend.
+- **Frontend Check:** PDF Viewer fixed (Polyfill) & Email Generator fixed (Key Rotation).
 - **Data:** Kaggle Datasets uploaded (`c:\Users\delat\Downloads\kaggle_datasets`).
 - **Feature:** "Self-Correction" is live but needs a frontend UI update.
 
