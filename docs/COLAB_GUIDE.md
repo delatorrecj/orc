@@ -1,31 +1,27 @@
-# ⚡ ORC: Google Colab Training Guide (Private Repo Edition)
+# ⚡ ORC: Google Colab Training Guide (Public Repo)
 
-Since your repo is private, the easiest way to train is to verify the **"Drag & Drop"** method.
-
-## Step 0: Get the Files
-1.  I have created a valid zip file for you on your Desktop: `orc/orc_training_pack.zip`.
-2.  Locate this file on your machine.
+Since your repo is **Public**, we can use the fast `git clone` method. This is the cleanest way to train.
 
 ## Step 1: Open Google Colab
 1.  Go to [colab.research.google.com](https://colab.research.google.com/).
 2.  Click **New Notebook**.
 3.  **IMPORTANT:** Go to `Runtime` -> `Change runtime type` -> Select **T4 GPU** -> Save.
 
-## Step 2: Upload Files
-1.  Click the **Folder Icon** 📁 on the left sidebar.
-2.  Drag and drop your `orc_training_pack.zip` into that area.
-3.  Wait for the upload circle to finish.
-
-## Step 3: Install & Train
-Copy and run this cell:
+## Step 2: Clone & Install
+Copy this into the first cell and run it (Shift + Enter).
+*This automatically pulls the latest fixes (including the rename of `evaluate.py`).*
 
 ```python
-# 1. Unzip the package
-!unzip -o orc_training_pack.zip
+# 1. Clone the ORC Repository
+!git clone https://github.com/delatorrecj/orc.git
+%cd orc
 
 # 2. Install Dependencies
 !pip install -r ml_engine/requirements_training.txt
+```
 
+## Step 3: Run Training
+```python
 # 3. Start Training (GPU Powered) 🚀
 !python ml_engine/train.py
 ```
