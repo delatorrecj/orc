@@ -161,9 +161,9 @@ class InvoiceDataset(Dataset):
         
         # 4. Extract first window (LayoutLMv3 is usually handled this way for simple training)
         return {
-            "input_ids": torch.tensor(encoding["input_ids"][0], dtype=torch.long),
-            "attention_mask": torch.tensor(encoding["attention_mask"][0], dtype=torch.long),
-            "bbox": torch.tensor(encoding["bbox"][0], dtype=torch.long),
-            "pixel_values": encoding["pixel_values"][0], # Already tensor
-            "labels": torch.tensor(encoding["labels"][0], dtype=torch.long)
+            "input_ids": encoding["input_ids"][0],
+            "attention_mask": encoding["attention_mask"][0],
+            "bbox": encoding["bbox"][0],
+            "pixel_values": encoding["pixel_values"][0], 
+            "labels": encoding["labels"][0]
         }
