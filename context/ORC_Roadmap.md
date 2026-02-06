@@ -49,15 +49,16 @@
 
 ---
 
-## Phase 10: Enterprise Scale (Future)
+## Phase 10: Event-Driven Agentic Mesh (Planning)
 
-| Feature | Priority | Status |
-|---------|----------|--------|
-| Multi-tenant SaaS | P1 | 🔲 |
-| API Authentication (JWT) | P1 | 🔲 |
-| Cloud Deployment (GCP) | P1 | 🔲 |
-| SOC 2 Compliance | P2 | 🔲 |
-| Multi-modal AI (Voice) | P2 | 🔲 |
+**Target:** <100ms Latency, Real-time Observability
+
+| Feature | Priority | Status | Tech Stack |
+|---------|----------|--------|------------|
+| **WebSocket / SSE** | P0 | 🔲 | Real-time agent thought streaming |
+| **PostgreSQL Migration** | P0 | 🔲 | Persistent state machine for long-running workflows |
+| **RPA Connectors** | P1 | 🔲 | UiPath/Zapier triggers for "Hands" |
+| **Multi-modal Intake** | P2 | 🔲 | Voice/Image context injection |
 
 ---
 
