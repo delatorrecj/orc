@@ -26,11 +26,11 @@
 
 | Feature | Priority | Status | Industry Benchmark |
 |---------|----------|--------|-------------------|
-| Grounding Map | P0 | 🔲 | Visual proof of extraction source |
-| Gmail API Integration | P0 | 🔲 | Auto-ingest (70% labor reduction) |
+| Grounding Map | P0 | ✅ | Visual proof of extraction source |
+| Gmail API Integration | P0 | ✅ | Auto-ingest (70% labor reduction) |
 | Vector DB (Vertex AI) | P0 | 🔲 | Benchmark comparison |
-| Fraud Detection | P1 | 🔲 | Round number + variance alerts |
-| Batch Golden Dataset Test | P1 | 🔲 | Validate 95%+ accuracy |
+| Fraud Detection | P1 | ✅ | Round number + variance alerts |
+| Batch Golden Dataset Test | P1 | ✅ | Validate 95%+ accuracy |
 
 ---
 
