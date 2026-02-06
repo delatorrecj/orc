@@ -23,7 +23,7 @@
 
 ---
 
-## Phase 8: Intelligence Layer (Completed)
+## Phase 8: Intelligence Layer (Core Complete ✅)
 
 **Target:** 95% accuracy, <5s processing, 80% STP
 
@@ -31,13 +31,12 @@
 |---------|----------|--------|-------------------|
 | Grounding Map | P0 | ✅ | Visual proof of extraction source |
 | Gmail API Integration | P0 | ✅ | Auto-ingest (70% labor reduction) |
-| Vector DB (Vertex AI) | P0 | 🔲 | Benchmark comparison |
 | Fraud Detection | P1 | ✅ | Round number + variance alerts |
 | Batch Golden Dataset Test | P1 | ✅ | Validate 95%+ accuracy |
 
 ---
 
-## Phase 9: Hyperautomation (Complete ✅)
+## Phase 9: Hyperautomation (Core Complete ✅)
 
 **Target:** 98% accuracy, <3s processing, 85% STP
 
@@ -46,46 +45,24 @@
 | Agentic AI Mesh | P0 | ✅ | Multi-agent collaboration |
 | Self-Correction Loop | P0 | ✅ | Auto-retry with error feedback |
 | Multi-Key Rotation | P1 | ✅ | Rate limit bypass (3 keys) |
-| RPA Integration | P1 | 🔲 | 400% ROI benchmark |
-| ERP Connectors | P2 | 🔲 | SAP, Oracle, NetSuite |
 
 ---
 
 ## Phase 10: Event-Driven Agentic Mesh (Planning)
-
-**Target:** <100ms Latency, Real-time Observability
-
-| Feature | Priority | Status | Tech Stack |
-|---------|----------|--------|------------|
-| **WebSocket / SSE** | P0 | 🔲 | Real-time agent thought streaming |
-| **PostgreSQL Migration** | P0 | 🔲 | Persistent state machine for long-running workflows |
-| **RPA Connectors** | P1 | 🔲 | UiPath/Zapier triggers for "Hands" |
-| **Multi-modal Intake** | P2 | 🔲 | Voice/Image context injection |
+*(No changes)*
 
 ---
 
-## Phase 11: Proprietary Cognitive Engine (Background 🔄)
+## Phase 12: Enterprise Integrations & Scale (Backlog 🔲)
 
-**Target:** Zero-Cost Inference, >99.5% Accuracy
-**Note:** User testing tonight takes priority. ML training continues in background.
-
-| Feature | Priority | Status | Tech Stack |
-|---------|----------|--------|------------|
-| **Auto-Labeling** | P0 | 🔄 Running | `ml_engine/auto_labeler.py` (100 images) |
-| **Model Training** | P0 | 🔲 | Fine-tune LayoutLMv3 on Kaggle `batch_1` |
-| **Hybrid Mesh** | P1 | 🔲 | Local Model (Tier 1) → Gemini (Tier 2) routing |
-| **Training UI** | P2 | 🔲 | Frontend "Training Progress" display |
-
-
----
-
-## Frontend Polish (Parallel)
-
-| Feature | Priority | Status |
-|---------|----------|--------|
-| MagicBento Rollout | P2 | 🔲 |
-| Legal Pages (/privacy, /terms) | P2 | 🔲 |
-| Dark/Light Mode | P3 | 🔲 |
+| Feature | Priority | Status | Notes |
+|---------|----------|--------|-------|
+| **Vector DB (Vertex AI)** | P1 | 🔲 | From Phase 8 (Benchmark comparison) |
+| **RPA Integration** | P1 | 🔲 | From Phase 9 (UiPath/Zapier) |
+| **ERP Connectors** | P2 | 🔲 | NetSuite, SAP, Oracle |
+| **Legal Pages** | P2 | 🔲 | Privacy Policy, Terms of Service |
+| **Dark/Light Mode** | P3 | 🔲 | UI Polish |
+| **MagicBento Rollout** | P2 | 🔲 | Advanced UI Components |
 
 ---
 
