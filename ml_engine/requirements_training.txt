@@ -1,0 +1,11 @@
+transformers
+datasets
+torch
+evaluate
+seqeval
+accelerate
+scikit-learn
+tensorboard
+python-multipart
+defusedxml
+pillow
