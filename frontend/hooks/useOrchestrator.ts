@@ -2,7 +2,8 @@
 
 import { useState, useMemo, useEffect } from "react";
 import { CONFIDENCE_THRESHOLD } from "@/lib/schemas";
-import { API_BASE_URL } from "@/lib/config";
+// import { API_BASE_URL } from "../lib/config";
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000";
 
 export type LogType = "info" | "success" | "warning" | "error" | "processing";
 
