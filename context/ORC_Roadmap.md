@@ -62,6 +62,19 @@
 
 ---
 
+## Phase 11: Proprietary Cognitive Engine (The Pivot)
+
+**Target:** Zero-Cost Inference, >99.5% Accuracy
+
+| Feature | Priority | Status | Tech Stack |
+|---------|----------|--------|------------|
+| **Data Flywheel** | P0 | 🔲 | Auto-labeling pipeline (Guardian -> Dataset) |
+| **Model Training** | P0 | 🔲 | Fine-tune LayoutLMv3 on Kaggle/Proprietary Data |
+| **Hybrid Mesh** | P1 | 🔲 | Local Model (Tier 1) -> Gemini (Tier 2) routing |
+
+
+---
+
 ## Frontend Polish (Parallel)
 
 | Feature | Priority | Status |

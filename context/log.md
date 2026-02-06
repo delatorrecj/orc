@@ -297,3 +297,12 @@
 - **Database Migration:** Replace transient JSON storage with PostgreSQL/Prisma.
 - **Real-time UX:** Show the user when the "Self-Correction" loop is active (e.g. "Analyst fixing error...").
 
+### Strategic Pivot: Machine Learning Core
+- **Decision:** Shift from pure "Gemini Wrapper" to "Hybrid Cognitive Engine".
+- **Goal:** Train proprietary models (LayoutLMv3/Donut) using Kaggle data + Self-Correction feedback.
+### Data Verification (Kaggle)
+- **Status:** Verified `batch_1` contains images.
+- **Issue:** `invoices.csv` does not match the images (Synthetic vs Scanned).
+- **Resolution:** Defined "Auto-Labeling" strategy where Gemini labels the images to create Ground Truth.
+- **Handoff:** Created `context/SESSION_RESUME.md` for next session.
+
