@@ -1,6 +1,6 @@
 # ORC: Product Roadmap
 
-**Version:** 3.0 | **Last Updated:** 2026-02-06
+**Version:** 3.1 | **Last Updated:** 2026-02-06
 **Mission:** Build an industry-grade Agentic Intake Layer achieving 98% accuracy and 85% STP rate.
 
 ---
@@ -60,10 +60,10 @@
 | Feature | Priority | Status | Significance |
 |---------|----------|--------|--------------|
 | **Data Foundry** | P0 | ✅ | Auto-Labeling Pipeline (Kaggle -> JSON) |
-| **Model Training Infra** | P0 | 🏃‍♂️ | `train.py` (LayoutLMv3 + EasyOCR) |
-| **Local Inference API** | P1 | �️ | Serve model via `fastapi` |
-| **Deploy to HF Spaces** | P1 | 🔲 | **Free Hosting** for Model (vs Railway) |
-| **Hybrid Routing** | P1 | 🔲 | Router: Gemini (Complex) vs Local (Simple) |
+| **Model Training Infra** | P0 | ✅ | Colab Training Complete (Loss: 0.007) |
+| **Local Inference API** | P1 | ✅ | `serve.py` with Cloud Fallback |
+| **Deploy to HF/Railway** | P1 | 🏃‍♂️ | CPU-Optimized Image + Cloud Model Load |
+| **Hybrid Routing** | P1 | ✅ | Router: Local -> Cloud (Gemini/HF) |
 
 ---
 
@@ -94,10 +94,10 @@
 
 ## Guiding Principles
 
-1. **Glass Box** — Every AI decision traceable
-2. **Human-in-the-Loop** — HITL for low-confidence extractions
-3. **Scale by Pattern** — Replicate successful automation flows
-4. **Data Quality First** — Start bounded, expand iteratively
+1.  **Glass Box** — Every AI decision traceable
+2.  **Human-in-the-Loop** — HITL for low-confidence extractions
+3.  **Scale by Pattern** — Replicate successful automation flows
+4.  **Data Quality First** — Start bounded, expand iteratively
 
 ---
 

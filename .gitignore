@@ -11,6 +11,9 @@
 *.backup
 *.bak
 *.tmp
+*.zip
+*.pt
+*.bin
 
 # ---- Data & Logs ----
 data/agent_logs/

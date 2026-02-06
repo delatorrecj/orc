@@ -361,3 +361,48 @@
 - **Artifacts:** `docs/COLAB_GUIDE.md`, `ml_engine/requirements_training.txt`.
 - **Status:** Packaged and Pushed. Ready for Colab.
 
+
+## [2026-02-06] Session 5: Security Hardening & Cloud Architecture
+**Focus:** Resolving Security Leaks, Cloud Training, and Deployment Optimization.
+
+### Completed Actions:
+
+**1. Security Incident Response (✅ Critical Fix)**
+- **Issue:** Google Cloud alerted on a Leaked API Key in `.env.backup` committed to GitHub.
+- **Root Cause:** `.env.backup` was not in `.gitignore`.
+- **Resolution:**
+  - Removed `.env.backup` from repository history.
+  - Hardened `.gitignore` to strictly exclude all `*.env*` patterns.
+  - **User Action:** User advised to rotate compromised keys immediately.
+
+**2. Phase 11.2: Cloud Training Implementation (✅ Complete)**
+- **Pivot:** Moved training from Local to **Google Colab** (Cloud-Burst Strategy).
+- **Tooling:** Created `orc_training_pack.zip` -> Evolved to Public Repo clone strategy (`!git clone`).
+- **Result:** Successfully fine-tuned `LayoutLMv3` on 164 samples.
+- **Metrics:** Training Loss dropped to **0.007** (Convergence achieved).
+- **Artifact:** Model weights ready for inference.
+
+**3. Phase 11.7: Railway Deployment Optimization (✅ Complete)**
+- **Blocker:** Build failed due to **5.8GB** Docker image (Railway Limit: 4GB).
+- **Cause:** `pip install torch` installs 3GB+ of CUDA/NVIDIA drivers by default.
+- **Fix:** Enforced **CPU-Only PyTorch** (`torch==2.1.2+cpu`) in `requirements_serving.txt`.
+- **Result:** Image size reduced to <2GB.
+
+**4. Cloud Model Hosting (✅ Implemented)**
+- **Constraint:** GitHub file limit (100MB) prevents pushing model weights to repo.
+- **Strategy:** Decoupled "Brain" (Model) from "Body" (App).
+- **Implementation:**
+  - **Host:** Hugging Face Hub (Free Tier).
+  - **Code:** Updated `serve.py` to check `HF_MODEL_ID` env var.
+  - **Logic:** If `HF_MODEL_ID` is set, download model at runtime. If not, fallback to Local or Base model.
+  - **Benefit:** 24/7 availability without relying on local laptop.
+
+### Current System State:
+- ✅ **Security:** Repository is clean of secrets.
+- ✅ **Training:** Model is trained and verified.
+- ✅ **Deployment:** Architecture supports "Cloud Load" (Production) and "Local Load" (Dev).
+
+### Next Steps:
+- **User Action:** Upload model to Hugging Face Hub (Colab).
+- **Configuration:** Set `HF_MODEL_ID` in Railway.
+- **Verification:** Test the deployed endpoint.

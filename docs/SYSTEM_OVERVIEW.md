@@ -39,9 +39,13 @@ We discovered the Kaggle dataset contains raw images but lacks ground truth.
 -   **Status:** Auto-Labeler V1 is active (Rate-limit aware).
 
 ### 2. Phase 12: Proprietary Cognitive Engine
--   **Goal:** Zero-Cost Inference.
--   **Tech:** Fine-tuned `LayoutLMv3` on our proprietary dataset.
--   **Architecture:** Hybrid Routing (Local Model handles 80% of volume; Gemini handles edge cases).
+-   **Goal:** Zero-Cost Inference & 24/7 Availability.
+-   **Tech:** Fine-tuned `LayoutLMv3` + CPU-Only Inference.
+-   **Architecture:**
+    -   **Training:** Google Colab (Free Tier GPU).
+    -   **Hosting:** Hugging Face Hub (Model Weights).
+    -   **Serving:** Railway (CPU Container) loads model from HF Hub.
+    -   **Hybrid Routing:** `useOrchestrator` tries Local -> Falls back to Cloud.
 
 ---
 
