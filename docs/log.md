@@ -1,4 +1,4 @@
-# Eco-Orchestrator Build Log
+# ORC Build Log
 
 ## [2026-02-04] Project Initialization
 - **Action**: Ingested `eco_orchestrator_build_bible.md` and `google_ai_principles.md`.
@@ -304,5 +304,9 @@
 - **Status:** Verified `batch_1` contains images.
 - **Issue:** `invoices.csv` does not match the images (Synthetic vs Scanned).
 - **Resolution:** Defined "Auto-Labeling" strategy where Gemini labels the images to create Ground Truth.
-- **Handoff:** Created `context/SESSION_RESUME.md` for next session.
+### Phase 9.5: Restructure (Polish)
+- **Docs:** Consolidated `context/` into `docs/`.
+- **Backend:** Renaming `scripts` -> `backend` paused (Server running).
+- **ML:** Created `ml_engine/` for Phase 11 pipelines.
+- **Handoff:** Updated `docs/SESSION_RESUME.md`.
 

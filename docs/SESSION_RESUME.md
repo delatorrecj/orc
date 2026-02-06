@@ -16,9 +16,9 @@
 ## 🚀 Next Steps (The "ML Pivot")
 1.  **Auto-Labeling Job:** Write a script to iterate through `batch_1`, send to Gemini, and save JSONs.
     - *Goal:* Create 100 labeled samples for the "Golden Dataset".
-2.  **Training Pipeline:** Set up `train.py` to fine-tune LayoutLMv3 on this new Golden Dataset.
-3.  **Free Tier Execution:** Upload the script to Kaggle Kernels for free GPU training.
+2.  **Training Pipeline:** Set up `ml_engine/train.py` to fine-tune LayoutLMv3.
+3.  **Restructure:** Rename `scripts` -> `backend` (requires server restart).
 
 ## 📝 Pending Tasks
-1.  [ ] Create `scripts/auto_labeler.py`.
+1.  [ ] Create `ml_engine/auto_labeler.py`.
 2.  [ ] Update Frontend to show "Training Progress".
