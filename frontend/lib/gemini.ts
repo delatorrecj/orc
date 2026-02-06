@@ -27,7 +27,7 @@ function getRotatedModel() {
 }
 
 // Proxy object to dynamically get a fresh model instance with a rotated key on each method call
-export const model = new Proxy({} as any, {
+export const model = new Proxy({} as unknown, {
     get: (_, prop) => {
         // Intercept generateContent to handle 429 retries
         if (prop === 'generateContent') {
