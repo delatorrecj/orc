@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,1..1000&display=swap');
+@import "tailwindcss";
+
+:root {
+  /* Brand Identity: Deep Space & Dark Glassmorphism */
+  --background: #0B0C10;
+  /* Obsidian Void */
+  --foreground: #F3F4F6;
+  /* Starlight */
+
+  --surface: #1F2833;
+  /* Event Horizon */
+  --surface-highlight: #374151;
+
+  --primary: #3B82F6;
+  /* Electric Blue (Restored) */
+  --primary-dim: #2563EB;
+
+  --warning: #FFA500;
+  /* Supernova Orange */
+  --success: #C5E1A5;
+  /* Secret Safari */
+  --critical: #EF4444;
+
+  /* Typography Override - Handled by next/font in layout.tsx */
+  --font-brand: "Google Sans Flex", sans-serif;
+  /* --font-sans and --font-mono are injected by next/font */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-surface: var(--surface);
+  --color-surface-highlight: var(--surface-highlight);
+  --color-primary: var(--primary);
+  --color-warning: var(--warning);
+  --color-success: var(--success);
+  --color-critical: var(--critical);
+
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+  background-image:
+    /* Subtle Colors / Nebula Effect */
+    radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 85% 30%, rgba(197, 225, 165, 0.08) 0%, transparent 50%),
+    radial-gradient(circle at 50% 0%, rgba(59, 130, 246, 0.15) 0%, transparent 60%),
+
+    /* Grid Lines */
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
+  background-attachment: fixed;
+}
+
+/* Vignette Overlay for Grid Fading */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at center, transparent 30%, #0B0C10 120%);
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(11, 12, 16, 0.6);
+  /* Darker, more void-like */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.primary-glow {
+  box-shadow: 0 0 20px var(--primary-glow);
+}
+
+/* Micro-Interactions */
+::selection {
+  background: rgba(59, 130, 246, 0.3);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0B0C10;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 4px;
+  border: 2px solid #0B0C10;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3B82F6;
+}
+
+/* Phase 6: Workflow Phase Sections */
+.phase-section {
+  scroll-margin-top: 100px;
+  transition: all 0.5s ease-out;
+}
+
+.phase-active {
+  position: relative;
+}
+
+.phase-active::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
+  pointer-events: none;
+  animation: phase-pulse 2s ease-in-out infinite;
+}
+
+@keyframes phase-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.phase-completed {
+  opacity: 0.85;
+}
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
