@@ -5,11 +5,9 @@ Uses pdfplumber for reliable table extraction from invoices/POs.
 
 import pdfplumber
 from pathlib import Path
-from typing import List, Dict, Any, Optional
-import re
+from typing import List, Dict, Any, Optional, Union
 
-
-def extract_tables(pdf_path: str | Path) -> List[Dict[str, Any]]:
+def extract_tables(pdf_path: Union[str, Path]) -> List[Dict[str, Any]]:
     """
     Extract all tables from a PDF file.
     
@@ -128,7 +126,7 @@ def extract_with_grounding(pdf_path: str | Path) -> Dict[str, Any]:
     return result
 
 
-def find_text_bbox(pdf_path: str | Path, search_text: str) -> List[Dict[str, Any]]:
+def find_text_bbox(pdf_path: Union[str, Path], search_text: str) -> List[Dict[str, Any]]:
     """
     Find bounding boxes for specific text in the PDF.
     Useful for grounding extracted values like totals, dates.
