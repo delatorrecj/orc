@@ -1,1 +1,1 @@
-web: python ml_engine/serve.py
+web: uvicorn backend.api_server:app --host 0.0.0.0 --port $PORT

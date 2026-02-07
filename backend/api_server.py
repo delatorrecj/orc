@@ -18,6 +18,10 @@ from datetime import datetime
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+import sys
+
+# Ensure backend directory is in python path for local imports
+sys.path.append(str(Path(__file__).parent))
 
 # Local imports
 from pdf_extractor import (
@@ -494,6 +498,7 @@ async def extract_document(file: UploadFile = File(...)):
     Full extraction pipeline: Gatekeeper → Analyst → Guardian
     """
     import time
+    import traceback
     start_time = time.time()
     
     # Validate file type
@@ -570,10 +575,16 @@ async def extract_document(file: UploadFile = File(...)):
             processing_time_ms=processing_time,
             extracted_at=datetime.now().isoformat()
         )
+
+    except Exception as e:
+        print("CRITICAL FAILURE: Server Error during extraction:")
+        traceback.print_exc()
+        raise HTTPException(status_code=500, detail=f"Server Error: {str(e)}")
     
     finally:
         # Cleanup temp file
-        tmp_path.unlink(missing_ok=True)
+        if tmp_path.exists():
+            tmp_path.unlink(missing_ok=True)
 
 
 # --- RUN ---
