@@ -62,7 +62,7 @@
 | **Data Foundry** | P0 | ✅ | Auto-Labeling Pipeline (Kaggle -> JSON) |
 | **Model Training Infra** | P0 | ✅ | Colab Training Complete (Loss: 0.007) |
 | **Local Inference API** | P1 | ✅ | `serve.py` with Cloud Fallback |
-| **Deploy to HF/Railway** | P1 | 🏃‍♂️ | CPU-Optimized Image + Cloud Model Load |
+| **Deploy to HF/Railway** | P1 | ✅ | CPU-Optimized Image + Cloud Model Load |
 | **Hybrid Routing** | P1 | ✅ | Router: Local -> Cloud (Gemini/HF) |
 
 ---

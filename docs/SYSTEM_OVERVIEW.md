@@ -44,7 +44,7 @@ We discovered the Kaggle dataset contains raw images but lacks ground truth.
 -   **Architecture:**
     -   **Training:** Google Colab (Free Tier GPU).
     -   **Hosting:** Hugging Face Hub (Model Weights).
-    -   **Serving:** Railway (CPU Container) loads model from HF Hub.
+    -   **Serving:** Railway (CPU Container) loads model from HF Hub (✅ ACTIVE).
     -   **Hybrid Routing:** `useOrchestrator` tries Local -> Falls back to Cloud.
 
 ---

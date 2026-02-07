@@ -17,6 +17,7 @@ from datetime import datetime
 
 from fastapi import FastAPI, UploadFile, File, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import sys
 
@@ -585,8 +586,6 @@ async def extract_document(file: UploadFile = File(...)):
             processing_time_ms=processing_time,
             extracted_at=datetime.now().isoformat()
         )
-
-from fastapi.responses import JSONResponse
 
     except Exception as e:
         print("CRITICAL FAILURE: Server Error during extraction:")
