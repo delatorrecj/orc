@@ -576,10 +576,15 @@ async def extract_document(file: UploadFile = File(...)):
             extracted_at=datetime.now().isoformat()
         )
 
+from fastapi.responses import JSONResponse
+
     except Exception as e:
         print("CRITICAL FAILURE: Server Error during extraction:")
         traceback.print_exc()
-        raise HTTPException(status_code=500, detail=f"Server Error: {str(e)}")
+        return JSONResponse(
+            status_code=500,
+            content={"error": f"Server Error: {str(e)}", "detail": str(e)}
+        )
     
     finally:
         # Cleanup temp file
