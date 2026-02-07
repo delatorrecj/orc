@@ -147,6 +147,16 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+@app.exception_handler(Exception)
+async def global_exception_handler(request, exc):
+    import traceback
+    print(f"CRITICAL UNHANDLED ERROR: {exc}")
+    traceback.print_exc()
+    return JSONResponse(
+        status_code=500,
+        content={"error": f"Internal Server Error: {str(exc)}", "detail": str(exc)}
+    )
+
 
 # --- AGENT FUNCTIONS ---
 
