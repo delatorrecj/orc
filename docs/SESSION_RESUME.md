@@ -5,15 +5,17 @@
 **Next Phase:** Phase 12.1 (ONNX Optimization)
 
 ## 🛑 System State: Hybrid Architecture (ACTIVE)
--   **Hosting:** Railway (Python Service) running `ml_engine/serve.py`.
+-   **Hosting:** Railway (Python Service) running `backend/api_server.py`.
 -   **Model Source:** Hugging Face Hub (`delatorrecj/orc-invoice-v1`).
--   **Configuration:** `HF_MODEL_ID` env var triggers runtime download.
+-   **Configuration:** 
+    - `HF_MODEL_ID` env var triggers runtime download.
+    - `NEXT_PUBLIC_API_URL` connects Frontend to Backend.
 -   **Build:** Optimized `torch-cpu` build (<2GB image) avoids Railway memory limits.
 -   **Training:** Moved to Google Colab (Free GPU) -> Upload to HF.
 
 ## ⚠️ Critical Configuration
--   **Procfile:** Points to `ml_engine/serve.py`.
--   **requirements.txt:** Locked to `torch==2.1.2+cpu` with `--extra-index-url`. **DO NOT CHANGE** without testing Docker build size.
+-   **Procfile:** Points to `backend/api_server.py` (via `uvicorn`).
+-   **requirements.txt:** Locked to `torch==2.5.1+cpu` with `--extra-index-url`. **DO NOT CHANGE** without testing Docker build size.
 -   **Secrets:** API Keys verified and rotated. `HF_TOKEN` stored in Colab (not repo).
 
 ## 🚀 Next Steps (Phase 12)
